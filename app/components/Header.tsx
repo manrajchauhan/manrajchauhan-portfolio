@@ -119,7 +119,7 @@ export default function Header() {
             </li>
           </ul>
         </nav>
-        {mobileNavOpen && (
+        {/* {mobileNavOpen && (
           <div className="fixed inset-0 z-50">
             <div
               onClick={() => setMobileNavOpen(!mobileNavOpen)}
@@ -226,7 +226,7 @@ export default function Header() {
               </a>
             </nav>
           </div>
-        )}
+        )} */}
       </div>
     </section>
   )
