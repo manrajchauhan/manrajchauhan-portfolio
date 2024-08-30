@@ -6,7 +6,7 @@ import Header from "./components/Header";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Welcome To Manraj Chauhan Portfolio",
+  title: "Manraj Chauhan Official Portfolio",
   description: "Web Development, Web Design, Graphic Design, Video Motion, Frontend & Backend",
 };
 
