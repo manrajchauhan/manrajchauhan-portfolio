@@ -1,0 +1,44 @@
+:root {
+  /* Color Palette - Extracted Editorial Warm Cream & Burnt Terracotta Palette */
+  --bg-obsidian: #faf4ec;       /* Primary Page Background - Warm Linen Cream */
+  --bg-surface: #fffdf9;        /* Card & Surface Base - Off-White */
+  --bg-card: #f5ebe0;           /* Secondary Card Base - Soft Sand */
+  --bg-dark-card: #121214;      /* High-Contrast Badge Base - Deep Charcoal */
+  --bg-glass: rgba(250, 244, 236, 0.75);
+  --bg-glass-hover: rgba(255, 253, 249, 0.95);
+
+  --text-main: #141210;         /* Primary Headings & Text - Rich Charcoal Espresso */
+  --text-secondary: #5c5248;    /* Muted Text - Warm Taupe */
+  --text-muted: #8c8278;        /* Subtle Labels - Sand Taupe */
+  --text-on-dark: #faf4ec;      /* Light Text on Dark Surface */
+
+  --accent-orange: #e04b16;     /* Primary Accent - Vibrant Burnt Terracotta / Rust */
+  --accent-copper: #a65d28;     /* Secondary Accent - Warm Copper Bronze */
+  --accent-amber: #c86f28;      /* Highlight Accent - Soft Amber */
+
+  --border-subtle: rgba(26, 23, 21, 0.12);
+  --border-active: rgba(224, 75, 22, 0.6);
+
+  /* Font Families */
+  --font-display: 'Space Grotesk', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-body: 'Inter', -apple-system, sans-serif;
+
+  /* Typography Scale */
+  --text-display: clamp(3rem, 10vw, 9.5rem);
+  --text-h1: clamp(2rem, 5vw, 4.5rem);
+  --text-h2: clamp(1.5rem, 3.5vw, 3rem);
+  --text-h3: clamp(1.2rem, 2vw, 1.8rem);
+  --text-body: 1rem;
+  --text-sm: 0.875rem;
+  --text-xs: 0.75rem;
+
+  /* Glassmorphism & Layout */
+  --glass-blur: blur(16px) saturate(180%);
+  --glass-border: 1px solid var(--border-subtle);
+
+  /* Transitions */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 200ms;
+  --duration-normal: 400ms;
+}

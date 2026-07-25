@@ -1,0 +1,293 @@
+@import './variables.css';
+
+/* Resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-obsidian);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Noise Grain Overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Fixed 3D Canvas Layer */
+.canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+/* Fixed DOM Overlay Layer */
+.dom-layer {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.dom-layer a, 
+.dom-layer button, 
+.dom-layer .interactive {
+  pointer-events: auto;
+}
+
+/* Header Component */
+.bs-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2.5rem;
+  z-index: 100;
+  background: linear-gradient(180deg, rgba(250, 244, 236, 0.95) 0%, rgba(250, 244, 236, 0) 100%);
+  backdrop-filter: blur(8px);
+}
+
+.bs-logo {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.bs-logo-tag {
+  color: var(--accent-orange);
+}
+
+.bs-status-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-orange);
+  box-shadow: 0 0 8px var(--accent-orange);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.bs-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bs-btn {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  color: var(--text-main);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out-expo);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.bs-btn:hover {
+  background: var(--accent-orange);
+  color: var(--text-on-dark);
+  border-color: var(--accent-orange);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(224, 75, 22, 0.35);
+}
+
+/* Basement Marquee Ticker */
+.bs-ticker {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.65rem 0;
+  background: var(--bg-dark-card);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 90;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.bs-ticker-track {
+  display: inline-flex;
+  gap: 3rem;
+  animation: ticker-slide 25s linear infinite;
+}
+
+.bs-ticker-item {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-on-dark);
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bs-ticker-accent {
+  color: var(--accent-orange);
+  font-weight: 700;
+}
+
+@keyframes ticker-slide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Drei Spatial HTML Container Styling */
+.drei-spatial-card {
+  background: rgba(255, 253, 249, 0.92);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-subtle);
+  padding: 2.2rem;
+  border-radius: 12px;
+  color: var(--text-main);
+  max-width: 460px;
+  user-select: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 36px rgba(20, 18, 16, 0.08);
+}
+
+.drei-spatial-card:hover {
+  border-color: var(--accent-orange);
+  box-shadow: 0 16px 48px rgba(224, 75, 22, 0.2);
+}
+
+.drei-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--text-h2);
+  line-height: 1.05;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  color: var(--text-main);
+}
+
+.drei-subtitle {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--accent-orange);
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+.drei-desc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Vinyl Spinning Icon Animation */
+.spin-icon {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Fullscreen Resume Modal Overlay */
+.resume-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(20, 18, 16, 0.75);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.resume-modal-container {
+  background: #fffdf9;
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  animation: modal-appear 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modal-appear {
+  from { opacity: 0; transform: scale(0.95) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.resume-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.8rem 2.2rem;
+  border-bottom: 1px solid var(--border-subtle);
+  background: #faf4ec;
+}
+
+.resume-modal-body {
+  padding: 2.2rem;
+  overflow-y: auto;
+}
+
