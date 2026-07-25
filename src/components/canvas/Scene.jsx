@@ -7,6 +7,7 @@ import {
   Environment, 
   ContactShadows 
 } from '@react-three/drei';
+import * as THREE from 'three';
 import Effects from './Effects';
 import Projects3D from './Projects3D';
 import Services3D from './Services3D';
@@ -92,6 +93,17 @@ export function HeroMesh() {
 }
 
 export default function Scene() {
+  useFrame((state) => {
+    // Calculate scroll progress [0, 1]
+    const scrollY = window.scrollY;
+    const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const scrollProgress = Math.min(1, Math.max(0, scrollY / maxScroll));
+
+    // Target Camera Y lerps smoothly from 0 (Hero) down to -36 (Music section)
+    const targetCameraY = -scrollProgress * 36;
+    state.camera.position.y = THREE.MathUtils.lerp(state.camera.position.y, targetCameraY, 0.08);
+  });
+
   return (
     <>
       <ambientLight intensity={0.6} />

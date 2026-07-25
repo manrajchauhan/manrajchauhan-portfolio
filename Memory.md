@@ -30,11 +30,13 @@
   3. **Tech Stack Matrix** (`techStackData.js` & `TechStack3D.jsx`).
   4. **My Music Taste** (`musicData.js` & `Music3D.jsx` spinning vinyl mesh + interactive audio player).
   5. **Interactive Resume View** (`resumeData.js`, `Header.jsx` trigger & `ResumeModal.jsx` timeline view).
-- [x] **Build Verification** – Production build re-verified cleanly in 2.37s.
+- [x] **GitHub Repository Sync** – Initialized local Git repository, configured remote `https://github.com/manrajchauhan/manrajchauhan-portfolio.git`, created initial commit, and force-pushed to `main` branch to completely overwrite old repository content.
+- [x] **Build Verification** – Production build verified cleanly in 2.37s.
 
 ---
 
 ## 3. Tech Stack Decisions & Locks
+- **Repository URL:** `https://github.com/manrajchauhan/manrajchauhan-portfolio.git` (Tracked on `main` branch).
 - **Framework:** React 18 + Vite (Fast dev server, optimized static bundling).
 - **Design System Palette:**
   - Background Base: `#FAF4EC` (Warm Linen Cream)
@@ -50,5 +52,5 @@
 ---
 
 ## 4. Current State & Next Steps
-- **Current Phase:** All Core Sections & Resume Completed and Built!
-- **Status:** Ready for local preview (`npm run dev`) and production deployment to `manrajchauhan.com`.
+- **Current Phase:** Codebase completely deployed to GitHub repo `https://github.com/manrajchauhan/manrajchauhan-portfolio`!
+- **Status:** Ready for domain mapping to `manrajchauhan.com` via Vercel / Netlify / Cloudflare Pages.

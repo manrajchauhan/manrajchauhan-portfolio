@@ -3,6 +3,7 @@ import Lenis from '@studio-freight/lenis';
 import Viewport from './components/canvas/Viewport';
 import Header from './components/dom/Header';
 import Ticker from './components/dom/Ticker';
+import Navigation from './components/dom/Navigation';
 
 export default function App() {
   useEffect(() => {
@@ -34,11 +35,17 @@ export default function App() {
       {/* 3D WebGL Canvas Layer (Three.js / R3F / Drei) */}
       <Viewport />
 
+      {/* Floating Section Navigation Bar */}
+      <Navigation />
+
       {/* 2D DOM Overlays (Fixed Navigation, Ticker, UI Controls) */}
       <div className="dom-layer">
         <Header />
         <Ticker />
       </div>
+
+      {/* Tall Scroll Container driving mouse wheel / scrollbar / touch scrolling */}
+      <div className="scroll-spacer" />
     </main>
   );
 }
