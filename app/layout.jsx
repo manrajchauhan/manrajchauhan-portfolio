@@ -50,6 +50,11 @@ export const metadata = {
   alternates: {
     canonical: 'https://manrajchauhan.com',
   },
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+    apple: '/icon.svg',
+  },
   openGraph: {
     title: 'Manraj Chauhan — Technical Lead & Full Stack Developer',
     description: 'Portfolio of Manraj Chauhan. Technical Lead & Full Stack Developer specializing in scalable web platforms, Next.js, and system architecture.',
