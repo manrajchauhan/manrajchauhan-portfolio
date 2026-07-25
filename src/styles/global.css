@@ -302,6 +302,122 @@ html, body {
   line-height: 1.6;
 }
 
+/* Dedicated Page Layout & Routing Styles */
+.page-wrapper {
+  padding: 8rem 4rem 6rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  min-height: 100vh;
+  pointer-events: auto;
+  position: relative;
+  z-index: 10;
+}
+
+.page-header {
+  margin-bottom: 3.5rem;
+}
+
+/* Projects 2D Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2rem;
+}
+
+.project-card-2d {
+  background: rgba(255, 253, 249, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+.project-card-2d:hover {
+  border-color: var(--accent-orange);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(224, 75, 22, 0.15);
+}
+
+/* Services 2D Grid */
+.services-grid-2d {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem;
+}
+
+.service-card-2d {
+  background: rgba(255, 253, 249, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 2.2rem;
+  transition: all 0.3s ease;
+}
+
+.service-card-2d:hover {
+  border-color: var(--accent-orange);
+  transform: translateY(-4px);
+}
+
+/* Music Page Layout */
+.music-container-2d {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 3rem;
+  align-items: center;
+}
+
+.vinyl-box-2d {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.vinyl-disc-2d {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #222 30%, #121214 70%);
+  border: 4px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+}
+
+.vinyl-disc-2d.spinning {
+  animation: spin 3s linear infinite;
+}
+
+.vinyl-center-label {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--accent-orange);
+  border: 4px solid #fffdf9;
+}
+
+.audio-player-box-2d {
+  background: rgba(255, 253, 249, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 2.2rem;
+}
+
+/* Dedicated Resume Page */
+.resume-page-container {
+  background: rgba(255, 253, 249, 0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.06);
+}
+
 /* Vinyl Spinning Icon Animation */
 .spin-icon {
   animation: spin 3s linear infinite;
@@ -311,6 +427,7 @@ html, body {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
 
 /* Fullscreen Resume Modal Overlay */
 .resume-modal-overlay {

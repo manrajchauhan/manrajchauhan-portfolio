@@ -1,9 +1,15 @@
 import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Lenis from '@studio-freight/lenis';
 import Viewport from './components/canvas/Viewport';
 import Header from './components/dom/Header';
 import Ticker from './components/dom/Ticker';
-import Navigation from './components/dom/Navigation';
+
+import HomePage from './pages/HomePage';
+import ServicesPage from './pages/ServicesPage';
+import ProjectsPage from './pages/ProjectsPage';
+import MusicPage from './pages/MusicPage';
+import ResumePage from './pages/ResumePage';
 
 export default function App() {
   useEffect(() => {
@@ -28,24 +34,29 @@ export default function App() {
   }, []);
 
   return (
-    <main className="app-root">
-      {/* SVG Film Grain Noise Overlay */}
-      <div className="noise-overlay" />
+    <Router>
+      <main className="app-root">
+        {/* SVG Film Grain Noise Overlay */}
+        <div className="noise-overlay" />
 
-      {/* 3D WebGL Canvas Layer (Three.js / R3F / Drei) */}
-      <Viewport />
+        {/* 3D WebGL Canvas Layer (Three.js / R3F / Drei) */}
+        <Viewport />
 
-      {/* Floating Section Navigation Bar */}
-      <Navigation />
+        {/* 2D DOM Header & Ticker Layer */}
+        <div className="dom-layer">
+          <Header />
+          
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/music" element={<MusicPage />} />
+            <Route path="/resume" element={<ResumePage />} />
+          </Routes>
 
-      {/* 2D DOM Overlays (Fixed Navigation, Ticker, UI Controls) */}
-      <div className="dom-layer">
-        <Header />
-        <Ticker />
-      </div>
-
-      {/* Tall Scroll Container driving mouse wheel / scrollbar / touch scrolling */}
-      <div className="scroll-spacer" />
-    </main>
+          <Ticker />
+        </div>
+      </main>
+    </Router>
   );
 }

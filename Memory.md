@@ -30,14 +30,15 @@
   3. **Tech Stack Matrix** (`techStackData.js` & `TechStack3D.jsx`).
   4. **My Music Taste** (`musicData.js` & `Music3D.jsx` spinning vinyl mesh + interactive audio player).
   5. **Interactive Resume View** (`resumeData.js`, `Header.jsx` trigger & `ResumeModal.jsx` timeline view).
-- [x] **GitHub Repository Sync** – Initialized local Git repository, configured remote `https://github.com/manrajchauhan/manrajchauhan-portfolio.git`, created initial commit, and force-pushed to `main` branch to completely overwrite old repository content.
-- [x] **Build Verification** – Production build verified cleanly in 2.37s.
+- [x] **Scroll Architecture Fix** – Added `.scroll-spacer` (550vh scroll container) to `App.jsx`, created `useScrollProgress.js` hook, configured camera Y lerping in `Scene.jsx` (`state.camera.position.y = lerp(camera.y, -scrollProgress * 36)`), built right-side floating section navigation (`Navigation.jsx`), and adjusted canvas `pointer-events: none` so mouse wheel, drag, and touch gestures smoothly drive spatial 3D section scrolling.
+- [x] **GitHub Repository Sync** – Pushed latest scroll resolution commit (`071c550`) to `https://github.com/manrajchauhan/manrajchauhan-portfolio.git`.
 
 ---
 
 ## 3. Tech Stack Decisions & Locks
 - **Repository URL:** `https://github.com/manrajchauhan/manrajchauhan-portfolio.git` (Tracked on `main` branch).
 - **Framework:** React 18 + Vite (Fast dev server, optimized static bundling).
+- **Scroll Engine:** Lenis Smooth Scroll + `useScrollProgress` hook + camera lerp interpolation along Y-axis.
 - **Design System Palette:**
   - Background Base: `#FAF4EC` (Warm Linen Cream)
   - Card & Surface: `#FFFDF9` (Off-White)
@@ -47,10 +48,9 @@
 - **3D Engine:** Three.js + `@react-three/fiber` + `@react-three/drei`.
 - **Spatial UI:** `@react-three/drei` `<Html transform distanceFactor occlusion>`.
 - **Post-Processing:** `@react-three/postprocessing` (Bloom, Vignette, ChromaticAberration, Noise).
-- **Smooth Scroll:** Lenis (`@studio-freight/lenis`).
 
 ---
 
 ## 4. Current State & Next Steps
-- **Current Phase:** Codebase completely deployed to GitHub repo `https://github.com/manrajchauhan/manrajchauhan-portfolio`!
+- **Current Phase:** 3D Spatial Camera Scrolling Fully Functional & Deployed!
 - **Status:** Ready for domain mapping to `manrajchauhan.com` via Vercel / Netlify / Cloudflare Pages.
