@@ -5,6 +5,7 @@ import Marquee from '@/components/Marquee';
 import Skills from '@/components/Skills';
 import Projects from '@/components/Projects';
 import Experience from '@/components/Experience';
+import AeoDigest from '@/components/AeoDigest';
 import Footer from '@/components/Footer';
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <Skills />
       <Projects />
       <Experience />
+      <AeoDigest />
       <Footer />
     </main>
   );
