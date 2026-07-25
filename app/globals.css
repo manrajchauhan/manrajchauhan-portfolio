@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  /* Monad Color Tokens */
+  --color-parchment: #f6f3f1;
+  --color-lake-blue: #2b59d1;
+  --color-periwinkle-mist: #cfdaf5;
+  --color-sky-blue: #a0b5eb;
+  --color-mint: #a7fccd;
+  --color-coral: #ff9473;
+  --color-gold: #ecda98;
+  --color-crimson: #f37a0a;
+  --color-off-black: #242424;
+  --color-ink: #000000;
+  --color-graphite: #4e4d4d;
+  --color-smoke: #797776;
+  --color-ash: #cecac8;
+
+  /* Typography */
+  --font-serif: var(--font-cormorant), ui-serif, Georgia, serif;
+  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-sans: var(--font-mono), ui-monospace, monospace;
+
+  /* Animation */
+  --animate-marquee: marquee 30s linear infinite;
+
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+}
+
+@layer base {
+  html, body {
+    background-color: #f6f3f1;
+    color: #242424;
+    font-family: var(--font-mono), ui-monospace, monospace;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+
+  /* Monad Editorial Serif Headlines - Weight locked at 400 */
+  h1, h2, h3, .font-serif {
+    font-family: var(--font-cormorant), Georgia, serif;
+    font-weight: 400 !important;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  /* Monad Soft Atmospheric Gradient Wash */
+  .atmospheric-wash {
+    background: radial-gradient(circle at 50% 40%, rgba(255, 148, 115, 0.25) 0%, rgba(160, 181, 235, 0.25) 40%, rgba(167, 252, 205, 0.15) 70%, transparent 100%);
+    filter: blur(40px);
+  }
+
+  .monad-card {
+    background-color: #f6f3f1;
+    border: 1px solid #cecac8;
+    border-radius: 40px;
+    padding: 40px;
+  }
+
+  .monad-pill {
+    border-radius: 9999px;
+    font-family: var(--font-mono), monospace;
+    text-transform: uppercase;
+    letter-spacing: -0.025em;
+  }
+}
