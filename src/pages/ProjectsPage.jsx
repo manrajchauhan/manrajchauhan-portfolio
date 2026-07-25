@@ -1,17 +1,17 @@
 import React from 'react';
 import { projectsData } from '../data/projectsData';
-import { ExternalLink, Github, FolderGit2 } from 'lucide-react';
+import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
 
 export default function ProjectsPage() {
   return (
     <div className="page-wrapper">
       <div className="page-header">
-        <span className="drei-subtitle">// SELECTED WORKS & CASE STUDIES</span>
-        <h1 className="drei-title" style={{ fontSize: '3rem' }}>
-          PROJECTS & <span style={{ color: 'var(--accent-orange)' }}>ENGINEERING LOGS</span>
+        <span className="vivid-eyebrow">// WORK & CASE STUDIES</span>
+        <h1 className="vivid-display-title" style={{ fontSize: 'clamp(3.5rem, 8vw, 105px)', marginBottom: '16px' }}>
+          SELECTED WORKS
         </h1>
-        <p className="drei-desc" style={{ maxWidth: '650px', fontSize: '1rem', marginTop: '0.5rem' }}>
-          Explore featured production web applications, 3D WebGL engines, cross-platform mobile apps, and real-world networking engineering logs.
+        <p className="drei-desc" style={{ maxWidth: '640px', color: 'var(--color-bone-white)' }}>
+          Production web applications, 3D WebGL spatial engines, cross-platform platforms, and deep networking infrastructure case studies.
         </p>
       </div>
 
@@ -19,43 +19,42 @@ export default function ProjectsPage() {
       <div className="projects-grid">
         {projectsData.map((project) => (
           <div key={project.id} className="project-card-2d">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.8rem' }}>
-              <span className="drei-subtitle" style={{ color: project.color, margin: 0 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+              <span className="drei-subtitle" style={{ margin: 0, color: 'var(--color-fog-blue)' }}>
                 {project.tag}
               </span>
-              <FolderGit2 size={18} color={project.color} />
+              <ArrowUpRight size={18} color="var(--color-bone-white)" />
             </div>
 
-            <h2 className="drei-title" style={{ fontSize: '1.6rem' }}>
+            <h2 className="drei-title" style={{ fontSize: '28px', marginBottom: '8px' }}>
               {project.title}
             </h2>
 
             <div style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.8rem',
-              color: 'var(--text-secondary)',
-              marginBottom: '0.8rem',
+              fontFamily: 'var(--font-neue-montreal)',
+              fontSize: '15px',
+              color: 'var(--color-fog-blue)',
+              marginBottom: '16px',
               textTransform: 'uppercase'
             }}>
               {project.category}
             </div>
 
-            <p className="drei-desc" style={{ marginBottom: '1.2rem' }}>
+            <p className="drei-desc" style={{ marginBottom: '24px', fontSize: '18px' }}>
               {project.description}
             </p>
 
-            {/* Tech Stack Badges */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '1.5rem' }}>
+            {/* Tech Badges */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '24px' }}>
               {project.tech.map((t, idx) => (
                 <span key={idx} style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.7rem',
-                  padding: '0.3rem 0.6rem',
-                  background: 'rgba(20, 18, 16, 0.04)',
-                  border: '1px solid var(--border-subtle)',
-                  borderRadius: '4px',
-                  color: 'var(--text-main)',
-                  fontWeight: '600'
+                  fontFamily: 'var(--font-neue-montreal)',
+                  fontSize: '14px',
+                  padding: '4px 10px',
+                  background: 'rgba(255, 253, 249, 0.05)',
+                  border: '1px solid var(--color-ash-border)',
+                  borderRadius: '0px',
+                  color: 'var(--color-bone-white)'
                 }}>
                   {t}
                 </span>
@@ -63,13 +62,13 @@ export default function ProjectsPage() {
             </div>
 
             {/* Links */}
-            <div style={{ display: 'flex', gap: '0.8rem' }}>
+            <div style={{ display: 'flex', gap: '12px' }}>
               <a href={project.demoUrl} target="_blank" rel="noreferrer" className="bs-btn">
-                <span>LIVE DEMO</span>
+                <span>VIEW CASE STUDY</span>
                 <ExternalLink size={14} />
               </a>
               <a href={project.githubUrl} target="_blank" rel="noreferrer" className="bs-btn">
-                <span>GITHUB</span>
+                <span>SOURCE CODE</span>
                 <Github size={14} />
               </a>
             </div>

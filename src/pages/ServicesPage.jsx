@@ -1,6 +1,6 @@
 import React from 'react';
 import { servicesData } from '../data/servicesData';
-import { Code2, Smartphone, Database, CloudUpload, Zap, Rocket, CheckCircle2 } from 'lucide-react';
+import { Code2, Smartphone, Database, CloudUpload, Zap, Rocket } from 'lucide-react';
 
 const iconMap = {
   Code2,
@@ -14,14 +14,13 @@ const iconMap = {
 export default function ServicesPage() {
   return (
     <div className="page-wrapper">
-      <div className="page-header" style={{ textAlign: 'center' }}>
-        <span className="drei-subtitle">// SERVICES & CORE CAPABILITIES</span>
-        <h1 className="drei-title" style={{ fontSize: '3.2rem' }}>
-          BUILDING SCALABLE DIGITAL SOLUTIONS<br />
-          THAT <span style={{ color: 'var(--accent-orange)' }}>DRIVE GROWTH</span>
+      <div className="page-header">
+        <span className="vivid-eyebrow">// EXPERTISE & CAPABILITIES</span>
+        <h1 className="vivid-display-title" style={{ fontSize: 'clamp(3.5rem, 8vw, 105px)', marginBottom: '16px' }}>
+          EXPERTISE
         </h1>
-        <p className="drei-desc" style={{ maxWidth: '700px', margin: '1rem auto 0', fontSize: '1.05rem' }}>
-          Comprehensive engineering services from architecture design to production deployment, tailored for modern web & mobile products.
+        <p className="drei-desc" style={{ maxWidth: '650px', color: 'var(--color-bone-white)', fontSize: '20px' }}>
+          Building brand value and scalable digital solutions — end-to-end engineering from cloud architecture to WebGL spatial design.
         </p>
       </div>
 
@@ -36,37 +35,37 @@ export default function ServicesPage() {
                 display: 'flex',
                 justify: 'space-between',
                 alignItems: 'center',
-                marginBottom: '1rem'
+                marginBottom: '16px'
               }}>
-                <div style={{
-                  width: '46px',
-                  height: '46px',
-                  borderRadius: '8px',
-                  background: 'rgba(224, 75, 22, 0.1)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justify: 'center',
-                  color: 'var(--accent-orange)'
-                }}>
-                  <IconComponent size={24} />
-                </div>
+                <IconComponent size={24} color="#6f879c" />
                 <span style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.85rem',
-                  fontWeight: '700',
-                  color: 'var(--accent-orange)'
+                  fontFamily: 'var(--font-neue-montreal)',
+                  fontSize: '15px',
+                  color: 'var(--color-fog-blue)'
                 }}>
                   {item.num}
                 </span>
               </div>
 
-              <h2 className="drei-title" style={{ fontSize: '1.4rem', marginBottom: '0.6rem' }}>
+              <h2 className="drei-title" style={{ fontSize: '24px', marginBottom: '12px' }}>
                 {item.title}
               </h2>
 
-              <p className="drei-desc" style={{ lineHeight: '1.6', fontSize: '0.92rem' }}>
+              <p className="drei-desc" style={{ fontSize: '18px', color: 'var(--color-bone-white)', lineHeight: '1.5' }}>
                 {item.description}
               </p>
+
+              {/* Ghost Service Label */}
+              <div style={{
+                color: 'var(--color-fog-blue)',
+                fontSize: '15px',
+                paddingTop: '20px',
+                borderTop: '1px solid var(--color-ash-border)',
+                marginTop: '20px',
+                textTransform: 'uppercase'
+              }}>
+                Engineering Taxonomy
+              </div>
             </div>
           );
         })}

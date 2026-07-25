@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { musicData } from '../data/musicData';
-import { Play, Pause, SkipForward, SkipBack, Disc, Disc3, Music2, Volume2 } from 'lucide-react';
+import { Play, Pause, SkipForward, SkipBack, Music2 } from 'lucide-react';
 
 export default function MusicPage() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -18,13 +18,13 @@ export default function MusicPage() {
 
   return (
     <div className="page-wrapper">
-      <div className="page-header" style={{ textAlign: 'center' }}>
-        <span className="drei-subtitle">// AUDIO & ATMOSPHERE</span>
-        <h1 className="drei-title" style={{ fontSize: '3rem' }}>
-          MY MUSIC <span style={{ color: 'var(--accent-orange)' }}>TASTE</span>
+      <div className="page-header">
+        <span className="vivid-eyebrow">// ATMOSPHERE & AUDIO SHIMMER</span>
+        <h1 className="vivid-display-title" style={{ fontSize: 'clamp(3.5rem, 8vw, 105px)', marginBottom: '16px' }}>
+          ATMOSPHERE
         </h1>
-        <p className="drei-desc" style={{ maxWidth: '650px', margin: '0.5rem auto 0' }}>
-          The synthwave, electronic, and ambient studio playlists that power late-night 3D coding & engineering sessions.
+        <p className="drei-desc" style={{ maxWidth: '640px', color: 'var(--color-bone-white)', fontSize: '20px' }}>
+          Curated studio soundscapes and synthwave playlists that accompany late-night WebGL & spatial code sessions.
         </p>
       </div>
 
@@ -35,10 +35,9 @@ export default function MusicPage() {
             <div className="vinyl-center-label" />
           </div>
 
-          <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
-            <span className="bs-status-pill" style={{ display: 'inline-flex' }}>
-              <Volume2 size={14} color="var(--accent-orange)" />
-              <span>{isPlaying ? 'NOW PLAYING' : 'AUDIO PAUSED'}</span>
+          <div style={{ marginTop: '20px', textAlign: 'center' }}>
+            <span style={{ fontFamily: 'var(--font-neue-montreal)', fontSize: '15px', color: 'var(--color-fog-blue)', textTransform: 'uppercase' }}>
+              {isPlaying ? '[ AUDIO PLAYING ]' : '[ AUDIO PAUSED ]'}
             </span>
           </div>
         </div>
@@ -48,67 +47,65 @@ export default function MusicPage() {
           <div style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '0.6rem',
-            fontFamily: 'var(--font-mono)',
-            fontSize: '0.8rem',
-            color: 'var(--accent-orange)',
-            marginBottom: '1rem'
+            gap: '8px',
+            fontFamily: 'var(--font-neue-montreal)',
+            fontSize: '15px',
+            color: 'var(--color-fog-blue)',
+            marginBottom: '16px',
+            textTransform: 'uppercase'
           }}>
-            <Music2 size={18} />
-            <span>STUDIO PLAYER</span>
+            <Music2 size={16} color="var(--color-fog-blue)" />
+            <span>STUDIO PLAYLIST</span>
           </div>
 
           <div style={{
-            background: 'rgba(20, 18, 16, 0.04)',
-            border: '1px solid var(--border-subtle)',
-            padding: '1.2rem',
-            borderRadius: '10px',
-            marginBottom: '1.5rem'
+            borderBottom: '1px solid var(--color-ash-border)',
+            paddingBottom: '20px',
+            marginBottom: '20px'
           }}>
-            <h2 className="drei-title" style={{ fontSize: '1.6rem', marginBottom: '0.2rem' }}>
+            <h2 className="drei-title" style={{ fontSize: '32px', marginBottom: '4px' }}>
               {track.title}
             </h2>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+            <div style={{ fontFamily: 'var(--font-neue-montreal)', fontSize: '18px', color: 'var(--color-fog-blue)' }}>
               {track.artist}
             </div>
           </div>
 
           {/* Controls */}
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginBottom: '1.5rem' }}>
-            <button onClick={prevTrack} className="bs-btn" style={{ padding: '0.6rem 1rem' }}>
-              <SkipBack size={18} />
+          <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', marginBottom: '24px' }}>
+            <button onClick={prevTrack} className="bs-btn">
+              <SkipBack size={16} />
             </button>
             <button 
               onClick={() => setIsPlaying(!isPlaying)} 
               className="bs-btn"
               style={{
-                padding: '0.8rem 1.8rem',
-                background: isPlaying ? 'var(--accent-orange)' : 'var(--bg-surface)',
-                color: isPlaying ? '#faf4ec' : 'var(--text-main)'
+                borderColor: 'var(--color-bone-white)',
+                padding: '10px 24px'
               }}
             >
-              {isPlaying ? <Pause size={20} /> : <Play size={20} />}
+              {isPlaying ? <Pause size={18} /> : <Play size={18} />}
               <span>{isPlaying ? 'PAUSE' : 'PLAY'}</span>
             </button>
-            <button onClick={nextTrack} className="bs-btn" style={{ padding: '0.6rem 1rem' }}>
-              <SkipForward size={18} />
+            <button onClick={nextTrack} className="bs-btn">
+              <SkipForward size={16} />
             </button>
           </div>
 
           {/* Playlist */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {musicData.playlist.map((item, idx) => (
               <div
                 key={idx}
                 onClick={() => { setTrackIndex(idx); setIsPlaying(true); }}
                 style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.82rem',
-                  padding: '0.6rem 0.8rem',
-                  borderRadius: '6px',
-                  background: idx === trackIndex ? 'rgba(224, 75, 22, 0.12)' : 'rgba(20, 18, 16, 0.02)',
-                  border: '1px solid var(--border-subtle)',
-                  color: idx === trackIndex ? 'var(--accent-orange)' : 'var(--text-main)',
+                  fontFamily: 'var(--font-neue-montreal)',
+                  fontSize: '16px',
+                  padding: '10px 14px',
+                  borderRadius: '0px',
+                  background: idx === trackIndex ? 'rgba(255, 253, 249, 0.08)' : 'transparent',
+                  borderBottom: '1px solid var(--color-ash-border)',
+                  color: idx === trackIndex ? 'var(--color-bone-white)' : 'var(--color-fog-blue)',
                   display: 'flex',
                   justify: 'space-between',
                   cursor: 'pointer'

@@ -4,8 +4,7 @@ import {
   Float, 
   Html, 
   MeshTransmissionMaterial, 
-  Environment, 
-  ContactShadows 
+  Environment
 } from '@react-three/drei';
 import * as THREE from 'three';
 import Effects from './Effects';
@@ -14,80 +13,85 @@ import Services3D from './Services3D';
 import TechStack3D from './TechStack3D';
 import Music3D from './Music3D';
 
-export function HeroMesh() {
-  const meshRef = useRef();
-  const innerRef = useRef();
+/* Vivid+Co Chromatic Prism Glass Cube Cluster */
+export function PrismHeroArtifact() {
+  const groupRef = useRef();
 
   useFrame((state, delta) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x += delta * 0.25;
-      meshRef.current.rotation.y += delta * 0.35;
-    }
-    if (innerRef.current) {
-      innerRef.current.rotation.x -= delta * 0.4;
-      innerRef.current.rotation.z += delta * 0.2;
+    if (groupRef.current) {
+      groupRef.current.rotation.y += delta * 0.15;
+      groupRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.3) * 0.1;
     }
   });
 
-  return (
-    <group position={[0, 0, 0]}>
-      <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
-        {/* Outer Transmission Glass Icosahedron */}
-        <mesh ref={meshRef} scale={1.8}>
-          <icosahedronGeometry args={[1, 0]} />
-          <MeshTransmissionMaterial
-            backside
-            backsideThickness={0.5}
-            thickness={0.6}
-            roughness={0.12}
-            transmission={0.95}
-            ior={1.52}
-            chromaticAberration={0.06}
-            distortion={0.18}
-            distortionScale={0.3}
-            temporalDistortion={0.1}
-            color="#fffdf9"
-          />
-        </mesh>
+  // Staggered cluster of 5 glass cubes with RGB split dispersion
+  const cubePositions = [
+    [0, 0, 0],
+    [-1.2, 0.8, -0.5],
+    [1.3, -0.6, 0.4],
+    [-0.8, -1.1, 0.6],
+    [0.9, 1.2, -0.4]
+  ];
 
-        {/* Inner Burnt Terracotta Core Mesh */}
-        <mesh ref={innerRef} scale={0.9}>
-          <octahedronGeometry args={[1, 0]} />
-          <meshStandardMaterial 
-            color="#e04b16" 
-            metalness={0.85} 
-            roughness={0.15} 
-            wireframe={true}
-          />
-        </mesh>
+  return (
+    <group ref={groupRef} position={[0, 0, 0]}>
+      <Float speed={1.5} rotationIntensity={0.3} floatIntensity={0.6}>
+        {cubePositions.map((pos, idx) => (
+          <group key={idx} position={pos}>
+            {/* Outer Chromatic Transmission Glass Cube */}
+            <mesh scale={1.2}>
+              <boxGeometry args={[1.2, 1.2, 1.2]} />
+              <MeshTransmissionMaterial
+                backside
+                backsideThickness={0.8}
+                thickness={1.2}
+                roughness={0.05}
+                transmission={0.98}
+                ior={1.6}
+                chromaticAberration={0.25} // High RGB dispersion
+                distortion={0.1}
+                color="#fffdf9"
+              />
+            </mesh>
+
+            {/* Core Pure Black Block */}
+            <mesh scale={0.6}>
+              <boxGeometry args={[1, 1, 1]} />
+              <meshBasicMaterial color="#000000" />
+            </mesh>
+
+            {/* RGB Chromatic Edge Highlights */}
+            <mesh scale={1.22}>
+              <boxGeometry args={[1.21, 1.21, 1.21]} />
+              <meshBasicMaterial 
+                color={idx % 3 === 0 ? "#ff2a2a" : idx % 3 === 1 ? "#2a7fff" : "#2aff2a"} 
+                wireframe 
+                transparent 
+                opacity={0.4} 
+              />
+            </mesh>
+          </group>
+        ))}
       </Float>
 
-      {/* Drei <Html> Spatial Header Element */}
+      {/* Drei <Html> Spatial Display Headline Block */}
       <Html
         transform
-        position={[0, 2.8, 0]}
+        position={[0, 2.6, 0]}
         distanceFactor={6}
         center
-        className="drei-spatial-card"
+        className="vivid-spatial-hero"
       >
         <div style={{ textAlign: 'center', pointerEvents: 'none' }}>
-          <div className="drei-subtitle">[ MANRAJ CHAUHAN // 2026 ]</div>
-          <h1 className="drei-title">BUILDING SCALABLE<br />DIGITAL SOLUTIONS</h1>
-          <p className="drei-desc">
-            Crafting immersive 3D WebGL applications, scalable web platforms, & high-performance engineering logs.
+          <div className="vivid-eyebrow">// WE ARE STORYTELLERS & STRATEGISTS</div>
+          <h1 className="vivid-display-title">
+            MANRAJ CHAUHAN
+          </h1>
+          <p className="vivid-lead-text">
+            Putting the pieces together — crafting cinematic WebGL experiences, 3D spatial applications, & high-performance engineering platforms.
           </p>
         </div>
       </Html>
-
-      {/* Soft Contact Shadows on Ground */}
-      <ContactShadows
-        position={[0, -2.5, 0]}
-        opacity={0.4}
-        scale={10}
-        blur={2.5}
-        far={4}
-        color="#221e1b"
-      />
     </group>
   );
 }
@@ -106,15 +110,15 @@ export default function Scene() {
 
   return (
     <>
-      <ambientLight intensity={0.6} />
-      <directionalLight position={[10, 10, 5]} intensity={1.4} color="#ffffff" />
-      <directionalLight position={[-10, -10, -5]} intensity={0.6} color="#e04b16" />
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[10, 10, 5]} intensity={1.8} color="#fffdf9" />
+      <directionalLight position={[-10, -10, -5]} intensity={0.8} color="#495764" />
       
       {/* Studio Environment Map for Glass & Chrome Reflections */}
-      <Environment preset="studio" />
+      <Environment preset="night" />
 
-      {/* 1. Hero 3D Spatial Mesh */}
-      <HeroMesh />
+      {/* 1. Hero 3D RGB Prism Glass Cube Cluster */}
+      <PrismHeroArtifact />
 
       {/* 2. Spatial 3D Projects Showcase */}
       <Projects3D />

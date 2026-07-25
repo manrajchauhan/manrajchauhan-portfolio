@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Volume2, VolumeX, FileText, Terminal, FolderGit2, Wrench, Music, Home } from 'lucide-react';
+import { Volume2, VolumeX } from 'lucide-react';
 
 export default function Header() {
   const [isMuted, setIsMuted] = useState(true);
@@ -11,56 +11,50 @@ export default function Header() {
   };
 
   const navLinks = [
-    { path: '/', label: 'HOME', icon: Home },
-    { path: '/services', label: 'SERVICES', icon: Wrench },
-    { path: '/projects', label: 'PROJECTS', icon: FolderGit2 },
-    { path: '/music', label: 'MUSIC', icon: Music },
-    { path: '/resume', label: 'RESUME', icon: FileText }
+    { path: '/', label: 'HOME' },
+    { path: '/services', label: 'EXPERTISE' },
+    { path: '/projects', label: 'WORK' },
+    { path: '/music', label: 'ATMOSPHERE' },
+    { path: '/resume', label: 'CAREERS' }
   ];
 
   return (
-    <header className="bs-header">
-      <Link to="/" className="bs-logo">
-        <Terminal size={18} className="bs-logo-tag" />
-        <span>MANRAJ CHAUHAN</span>
-        <span className="bs-logo-tag">// 2026</span>
+    <header className="vivid-header">
+      {/* Wordmark */}
+      <Link to="/" className="vivid-wordmark">
+        MANRAJ CHAUHAN
       </Link>
 
-      {/* Navigation Links */}
-      <nav style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>
+      {/* Ghost Navigation Links */}
+      <nav className="vivid-nav-links">
         {navLinks.map((link) => {
-          const IconComp = link.icon;
           const isActive = location.pathname === link.path;
 
           return (
             <Link
               key={link.path}
               to={link.path}
-              className={`bs-btn ${isActive ? 'active-nav-link' : ''}`}
-              style={{
-                background: isActive ? 'var(--accent-orange)' : 'var(--bg-surface)',
-                color: isActive ? '#faf4ec' : 'var(--text-main)',
-                borderColor: isActive ? 'var(--accent-orange)' : 'var(--border-subtle)',
-                padding: '0.5rem 0.9rem'
-              }}
+              className={`vivid-ghost-btn ${isActive ? 'active-ghost' : ''}`}
             >
-              <IconComp size={14} />
-              <span>{link.label}</span>
+              {link.label}
             </Link>
           );
         })}
       </nav>
 
-      <div className="bs-nav-actions">
+      {/* Action Controls & Sole Outlined Contact Button */}
+      <div className="vivid-actions">
         <button 
           onClick={toggleSound} 
-          className="bs-btn"
+          className="vivid-audio-btn"
           aria-label="Toggle Sound"
-          title={isMuted ? "Unmute Audio FX" : "Mute Audio FX"}
         >
-          {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} color="var(--accent-orange)" />}
-          <span>{isMuted ? "SOUND OFF" : "SOUND ON"}</span>
+          {isMuted ? <VolumeX size={14} color="#6f879c" /> : <Volume2 size={14} color="#fffdf9" />}
         </button>
+
+        <Link to="/resume" className="vivid-outlined-contact-btn">
+          CONTACT
+        </Link>
       </div>
     </header>
   );

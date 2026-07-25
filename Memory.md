@@ -30,15 +30,21 @@
   3. **Tech Stack Matrix** (`techStackData.js` & `TechStack3D.jsx`).
   4. **My Music Taste** (`musicData.js` & `Music3D.jsx` spinning vinyl mesh + interactive audio player).
   5. **Interactive Resume View** (`resumeData.js`, `Header.jsx` trigger & `ResumeModal.jsx` timeline view).
-- [x] **Scroll Architecture Fix** – Added `.scroll-spacer` (550vh scroll container) to `App.jsx`, created `useScrollProgress.js` hook, configured camera Y lerping in `Scene.jsx` (`state.camera.position.y = lerp(camera.y, -scrollProgress * 36)`), built right-side floating section navigation (`Navigation.jsx`), and adjusted canvas `pointer-events: none` so mouse wheel, drag, and touch gestures smoothly drive spatial 3D section scrolling.
-- [x] **GitHub Repository Sync** – Pushed latest scroll resolution commit (`071c550`) to `https://github.com/manrajchauhan/manrajchauhan-portfolio.git`.
+- [x] **Dedicated Page Routing Architecture** – Installed `react-router-dom` and built dedicated route views for:
+  - 🏠 **`/` (Home)**: Hero 3D Spatial Canvas + Tech Stack Matrix.
+  - 🚀 **`/projects` (Projects Page)**: Full dedicated 3D/2D gallery view for all 5 projects with case study details.
+  - 🛠️ **`/services` (Services Page)**: Dedicated Services view (*Building Scalable Digital Solutions that Drive Growth*).
+  - 🎵 **`/music` (Music Page)**: Dedicated studio music page with 3D vinyl record mesh and audio player controls.
+  - 📄 **`/resume` (Resume Page)**: Full-page clean Resume CV view with PDF download CTA.
+- [x] **GitHub Repository Sync** – Pushed latest routing commit (`ca10306`) to `https://github.com/manrajchauhan/manrajchauhan-portfolio.git`.
 
 ---
 
 ## 3. Tech Stack Decisions & Locks
 - **Repository URL:** `https://github.com/manrajchauhan/manrajchauhan-portfolio.git` (Tracked on `main` branch).
-- **Framework:** React 18 + Vite (Fast dev server, optimized static bundling).
-- **Scroll Engine:** Lenis Smooth Scroll + `useScrollProgress` hook + camera lerp interpolation along Y-axis.
+- **Framework:** React 18 + Vite + `react-router-dom`.
+- **Routes:** `/`, `/services`, `/projects`, `/music`, `/resume`.
+- **Scroll Engine:** Lenis Smooth Scroll + `useScrollProgress` hook.
 - **Design System Palette:**
   - Background Base: `#FAF4EC` (Warm Linen Cream)
   - Card & Surface: `#FFFDF9` (Off-White)
@@ -52,5 +58,5 @@
 ---
 
 ## 4. Current State & Next Steps
-- **Current Phase:** 3D Spatial Camera Scrolling Fully Functional & Deployed!
-- **Status:** Ready for domain mapping to `manrajchauhan.com` via Vercel / Netlify / Cloudflare Pages.
+- **Current Phase:** Dedicated Routing Pages & 3D Spatial Canvas Fully Functional & Deployed!
+- **Status:** Ready for production deployment to `manrajchauhan.com`.

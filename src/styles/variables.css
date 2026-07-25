@@ -1,44 +1,83 @@
 :root {
-  /* Color Palette - Extracted Editorial Warm Cream & Burnt Terracotta Palette */
-  --bg-obsidian: #faf4ec;       /* Primary Page Background - Warm Linen Cream */
-  --bg-surface: #fffdf9;        /* Card & Surface Base - Off-White */
-  --bg-card: #f5ebe0;           /* Secondary Card Base - Soft Sand */
-  --bg-dark-card: #121214;      /* High-Contrast Badge Base - Deep Charcoal */
-  --bg-glass: rgba(250, 244, 236, 0.75);
-  --bg-glass-hover: rgba(255, 253, 249, 0.95);
+  /* Vivid+Co Color Tokens */
+  --color-bone-white: #fffdf9;       /* Primary text, nav labels, link color, heading fill */
+  --color-obsidian: #101010;         /* Deep canvas void */
+  --color-graphite-veil: #495764;    /* Dominant surface behind headings and cards */
+  --color-ash-border: #403f3f;       /* Hairline divider and outline (1px) */
+  --color-fog-blue: #6f879c;         /* Muted secondary text and ghost button labels */
+  --color-pure-black: #000000;       /* Decorative cores and glyph fills */
 
-  --text-main: #141210;         /* Primary Headings & Text - Rich Charcoal Espresso */
-  --text-secondary: #5c5248;    /* Muted Text - Warm Taupe */
-  --text-muted: #8c8278;        /* Subtle Labels - Sand Taupe */
-  --text-on-dark: #faf4ec;      /* Light Text on Dark Surface */
+  /* Chromatic Prism Dispersion Accents (for 3D Artifact only) */
+  --color-prism-red: #ff2a2a;
+  --color-prism-cyan: #2a7fff;
+  --color-prism-lime: #2aff2a;
 
-  --accent-orange: #e04b16;     /* Primary Accent - Vibrant Burnt Terracotta / Rust */
-  --accent-copper: #a65d28;     /* Secondary Accent - Warm Copper Bronze */
-  --accent-amber: #c86f28;      /* Highlight Accent - Soft Amber */
-
-  --border-subtle: rgba(26, 23, 21, 0.12);
-  --border-active: rgba(224, 75, 22, 0.6);
-
-  /* Font Families */
-  --font-display: 'Space Grotesk', -apple-system, sans-serif;
+  /* Typography - Neue Montreal / System Fallback */
+  --font-neue-montreal: 'Neue Montreal', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --font-body: 'Inter', -apple-system, sans-serif;
 
   /* Typography Scale */
-  --text-display: clamp(3rem, 10vw, 9.5rem);
-  --text-h1: clamp(2rem, 5vw, 4.5rem);
-  --text-h2: clamp(1.5rem, 3.5vw, 3rem);
-  --text-h3: clamp(1.2rem, 2vw, 1.8rem);
-  --text-body: 1rem;
-  --text-sm: 0.875rem;
-  --text-xs: 0.75rem;
+  --text-caption: 15px;
+  --leading-caption: 1.2;
+  --tracking-caption: 0.15px;
 
-  /* Glassmorphism & Layout */
-  --glass-blur: blur(16px) saturate(180%);
-  --glass-border: 1px solid var(--border-subtle);
+  --text-body-sm: 18px;
+  --leading-body-sm: 1.5;
+
+  --text-body: 20px;
+  --leading-body: 1.2;
+  --tracking-body: -0.2px;
+
+  --text-body-lg: 22px;
+  --leading-body-lg: 1.2;
+  --tracking-body-lg: -0.22px;
+
+  --text-heading-sm: 33px;
+  --leading-heading-sm: 1.2;
+  --tracking-heading-sm: -0.33px;
+
+  --text-heading: 36px;
+  --leading-heading: 1.5;
+
+  --text-heading-lg: 56px;
+  --leading-heading-lg: 1.13;
+  --tracking-heading-lg: -0.56px;
+
+  --text-display-sm: clamp(4rem, 8vw, 105px);
+  --leading-display-sm: 1.01;
+  --tracking-display-sm: -2.1px;
+
+  --text-display: clamp(5rem, 11vw, 136px);
+  --leading-display: 1.00;
+  --tracking-display: -2.72px;
+
+  /* Typography Weights */
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  /* Layout & Spacing Scale (4px base) */
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-40: 40px;
+  --spacing-56: 56px;
+  --spacing-60: 60px;
+  --spacing-64: 64px;
+  --spacing-72: 72px;
+  --spacing-108: 108px;
+  --page-max-width: 1440px;
+
+  /* Border Radii */
+  --radius-nav: 5px;
+  --radius-cards: 15px;
+  --radius-tags: 9999px;
+  --radius-buttons: 0px;
+
+  /* Surfaces */
+  --surface-obsidian: #101010;
+  --surface-graphite: #495764;
+  --surface-bone: #fffdf9;
 
   /* Transitions */
-  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --duration-fast: 200ms;
-  --duration-normal: 400ms;
+  --ease-vivid: cubic-bezier(0.52, 0.01, 0, 1);
+  --duration-vivid: 0.5s;
 }
