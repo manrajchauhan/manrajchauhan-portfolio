@@ -3,6 +3,7 @@ import LenisProvider from '@/components/LenisProvider';
 import JsonLd from '@/components/JsonLd';
 import { LeadCaptureProvider } from '@/components/ui/LeadCaptureContext';
 import LeadCaptureModal from '@/components/ui/LeadCaptureModal';
+import FloatingWhatsApp from '@/components/ui/FloatingWhatsApp';
 
 export const metadata = {
   metadataBase: new URL('https://manrajchauhan.com'),
@@ -88,6 +89,7 @@ export default function RootLayout({ children }) {
           <LenisProvider>
             {children}
             <LeadCaptureModal />
+            <FloatingWhatsApp />
           </LenisProvider>
         </LeadCaptureProvider>
       </body>
