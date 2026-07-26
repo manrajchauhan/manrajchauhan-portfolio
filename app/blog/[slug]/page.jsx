@@ -107,7 +107,7 @@ export default async function BlogSinglePage(props) {
               <p style={{ fontSize: '14px', color: 'var(--color-muted)', margin: '0 0 20px', lineHeight: '1.5' }}>
                 Have questions about full-stack engineering, performance optimizations, or system design? Feel free to reach out directly.
               </p>
-              <ActionButton href="mailto:contact@manrajchauhan.com">
+              <ActionButton href="mailto:manrajchauhan2023@gmail.com">
                 <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
                   Let&apos;s Discuss <ArrowUpRight size={12} />
                 </span>

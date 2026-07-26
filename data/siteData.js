@@ -157,11 +157,11 @@ export function getAnchorForLabel(label) {
     Project: '/work',
     Work: '/work',
     Service: '/#service',
-    Contact: 'mailto:contact@manrajchauhan.com',
+    Contact: 'mailto:manrajchauhan2023@gmail.com',
     WhatsApp: 'https://wa.me/?text=Hi%20Manraj,%20I%20saw%20your%20portfolio',
     GitHub: 'https://github.com/manrajchauhan',
     LinkedIn: 'https://www.linkedin.com/in/mrmanrajchauhan/',
-    Email: 'mailto:contact@manrajchauhan.com',
+    Email: 'mailto:manrajchauhan2023@gmail.com',
     Sitemap: '/sitemap',
   };
 

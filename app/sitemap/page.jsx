@@ -21,7 +21,7 @@ const coreSections = [
 const externalResources = [
   { label: 'GitHub Profile', path: 'https://github.com/manrajchauhan', type: 'External' },
   { label: 'LinkedIn Network', path: 'https://www.linkedin.com/in/mrmanrajchauhan/', type: 'External' },
-  { label: 'Direct Email', path: 'mailto:contact@manrajchauhan.com', type: 'Contact' },
+  { label: 'Direct Email', path: 'mailto:manrajchauhan2023@gmail.com', type: 'Contact' },
   { label: 'XML Sitemap', path: '/sitemap.xml', type: 'SEO Feed' },
 ];
 
@@ -189,7 +189,7 @@ export default function SitemapPage() {
               <span>0{idx + 1}</span>
               <h3>{art.title}</h3>
               <p>{art.tag} • {art.date} ({art.read})</p>
-              <a href="mailto:contact@manrajchauhan.com">Read article →</a>
+              <a href={art.href}>Read article →</a>
             </motion.article>
           ))}
         </motion.div>

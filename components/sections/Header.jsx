@@ -71,7 +71,7 @@ export default function Header() {
                 {item}
               </a>
             ))}
-            <a href="mailto:contact@manrajchauhan.com">Contact</a>
+            <a href="mailto:manrajchauhan2023@gmail.com">Contact</a>
           </nav>
         </details>
       </motion.div>

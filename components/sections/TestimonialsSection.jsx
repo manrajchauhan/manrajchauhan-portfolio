@@ -27,7 +27,7 @@ export default function TestimonialsSection() {
             <div className="testimonial-socials" aria-label="Social links">
               <a href="https://github.com/manrajchauhan" target="_blank" rel="noreferrer">Gh</a>
               <a href="https://www.linkedin.com/in/mrmanrajchauhan/" target="_blank" rel="noreferrer">In</a>
-              <a href="mailto:contact@manrajchauhan.com">Em</a>
+              <a href="mailto:manrajchauhan2023@gmail.com">Em</a>
             </div>
           </motion.div>
         </motion.div>

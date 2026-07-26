@@ -89,7 +89,7 @@ export default function FooterSection() {
           </a>
           <a href="https://github.com/manrajchauhan" target="_blank" rel="noreferrer">GitHub</a>
           <a href="https://www.linkedin.com/in/mrmanrajchauhan/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="mailto:contact@manrajchauhan.com">
+          <a href="mailto:manrajchauhan2023@gmail.com">
             <Mail size={12} /> Email
           </a>
         </div>

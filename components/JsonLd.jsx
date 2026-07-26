@@ -32,7 +32,7 @@ export default function JsonLd() {
     ],
     contactPoint: {
       '@type': 'ContactPoint',
-      email: 'contact@manrajchauhan.com',
+      email: 'manrajchauhan2023@gmail.com',
       contactType: 'professional inquiries',
     },
   };
@@ -157,7 +157,7 @@ export default function JsonLd() {
         name: 'How can I contact Manraj Chauhan for engineering projects or technical direction?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'You can contact Manraj Chauhan directly via email at contact@manrajchauhan.com, on LinkedIn at https://www.linkedin.com/in/mrmanrajchauhan/, or on GitHub at https://github.com/manrajchauhan.',
+          text: 'You can contact Manraj Chauhan directly via email at manrajchauhan2023@gmail.com, on LinkedIn at https://www.linkedin.com/in/mrmanrajchauhan/, or on GitHub at https://github.com/manrajchauhan.',
         },
       },
     ],

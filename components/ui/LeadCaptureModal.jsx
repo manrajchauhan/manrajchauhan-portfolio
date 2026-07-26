@@ -56,7 +56,6 @@ export default function LeadCaptureModal() {
     setIsSubmitting(true);
 
     try {
-      // Attempt API POST submission (Web3Forms / Formspree endpoint format)
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
@@ -64,7 +63,7 @@ export default function LeadCaptureModal() {
           Accept: 'application/json',
         },
         body: JSON.stringify({
-          access_key: 'YOUR_WEB3FORMS_ACCESS_KEY', // Fallback handled gracefully if key unconfigured
+          access_key: '5652e2e4-b19a-4d99-8310-77cda15ea816',
           subject: `New Lead Inquiry: ${formData.name} (${formData.service})`,
           from_name: formData.name,
           email: formData.email,
@@ -84,7 +83,7 @@ export default function LeadCaptureModal() {
         const mailtoBody = encodeURIComponent(
           `Name: ${formData.name}\nEmail: ${formData.email}\nService: ${formData.service}\nBudget: ${formData.budget}\n\nProject Brief:\n${formData.message}`
         );
-        window.location.href = `mailto:contact@manrajchauhan.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+        window.location.href = `mailto:manrajchauhan2023@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
         setIsSubmitted(true);
       }
     } catch (err) {
@@ -93,7 +92,7 @@ export default function LeadCaptureModal() {
       const mailtoBody = encodeURIComponent(
         `Name: ${formData.name}\nEmail: ${formData.email}\nService: ${formData.service}\nBudget: ${formData.budget}\n\nProject Brief:\n${formData.message}`
       );
-      window.location.href = `mailto:contact@manrajchauhan.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+      window.location.href = `mailto:manrajchauhan2023@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
       setIsSubmitted(true);
     } finally {
       setIsSubmitting(false);

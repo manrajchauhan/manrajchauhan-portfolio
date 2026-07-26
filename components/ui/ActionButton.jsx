@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
-export default function ActionButton({ children, href = 'mailto:contact@manrajchauhan.com', tone = 'dark' }) {
+export default function ActionButton({ children, href = 'mailto:manrajchauhan2023@gmail.com', tone = 'dark' }) {
   return (
     <motion.a
       whileHover="hover"
