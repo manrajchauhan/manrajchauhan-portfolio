@@ -1,30 +1,14 @@
-import { Cormorant_Garamond, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import LenisProvider from '@/components/LenisProvider';
 import JsonLd from '@/components/JsonLd';
 
-const cormorant = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['400'],
-  style: ['normal', 'italic'],
-  variable: '--font-cormorant',
-  display: 'swap',
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500'],
-  variable: '--font-mono',
-  display: 'swap',
-});
-
 export const metadata = {
   metadataBase: new URL('https://manrajchauhan.com'),
   title: {
-    default: 'Manraj Chauhan — Technical Lead & Full Stack Developer',
+    default: 'Manraj Chauhan - Technical Lead & Full Stack Developer',
     template: '%s | Manraj Chauhan',
   },
-  description: 'Manraj Chauhan is a Technical Lead & Full Stack Developer specializing in high-performance web applications, scalable system architectures, React, Next.js, Node.js, and API engineering.',
+  description: 'Portfolio of Manraj Chauhan, a Technical Lead and Full Stack Developer building high-performance web applications, scalable backend systems, and polished product experiences.',
   keywords: [
     'Manraj Chauhan',
     'Manraj Chauhan Portfolio',
@@ -56,8 +40,8 @@ export const metadata = {
     apple: '/icon.svg',
   },
   openGraph: {
-    title: 'Manraj Chauhan — Technical Lead & Full Stack Developer',
-    description: 'Portfolio of Manraj Chauhan. Technical Lead & Full Stack Developer specializing in scalable web platforms, Next.js, and system architecture.',
+    title: 'Manraj Chauhan - Technical Lead & Full Stack Developer',
+    description: 'Portfolio of Manraj Chauhan, focused on full stack engineering, API systems, technical leadership, and high-performance product interfaces.',
     url: 'https://manrajchauhan.com',
     siteName: 'Manraj Chauhan Portfolio',
     images: [
@@ -65,7 +49,7 @@ export const metadata = {
         url: '/hero.png',
         width: 1200,
         height: 630,
-        alt: 'Manraj Chauhan — Technical Lead & Full Stack Developer',
+        alt: 'Manraj Chauhan - Technical Lead & Full Stack Developer',
       },
     ],
     locale: 'en_US',
@@ -73,8 +57,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Manraj Chauhan — Technical Lead & Full Stack Developer',
-    description: 'Personal portfolio of Manraj Chauhan. Technical Lead & Full Stack Developer specializing in high-performance web applications.',
+    title: 'Manraj Chauhan - Technical Lead & Full Stack Developer',
+    description: 'Personal portfolio of Manraj Chauhan, Technical Lead and Full Stack Developer.',
     images: ['/hero.png'],
     creator: '@mrmanrajchauhan',
   },
@@ -93,11 +77,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en">
       <head>
         <JsonLd />
       </head>
-      <body className="font-mono bg-parchment text-off-black antialiased selection:bg-periwinkle-mist selection:text-off-black min-h-screen">
+      <body>
         <LenisProvider>
           {children}
         </LenisProvider>

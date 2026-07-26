@@ -14,7 +14,7 @@ export default function JsonLd() {
       'https://www.linkedin.com/in/mrmanrajchauhan/',
       'https://github.com/manrajchauhan',
     ],
-    description: 'Manraj Chauhan is a Technical Lead and Full Stack Developer specializing in high-performance web applications, React, Next.js, Node.js, and system architecture.',
+    description: 'Manraj Chauhan is a Technical Lead and Full Stack Developer specializing in high-performance web applications, API systems, React, Next.js, Node.js, and system architecture.',
     knowsAbout: [
       'Full Stack Development',
       'Technical Leadership',
@@ -48,7 +48,7 @@ export default function JsonLd() {
         name: 'Who is Manraj Chauhan?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Manraj Chauhan is a Full Stack Developer and Technical Lead with expertise in building scalable web applications, API microservices, and leading software engineering teams.',
+          text: 'Manraj Chauhan is a Technical Lead and Full Stack Developer with expertise in building scalable web applications, API microservices, and leading software engineering teams.',
         },
       },
       {

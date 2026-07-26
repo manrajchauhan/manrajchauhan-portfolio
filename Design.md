@@ -1,73 +1,127 @@
-# Design System & Aesthetic Specification (Design.md)
+# Design System & UI Direction
 
-**Project:** Manraj Chauhan 3D Portfolio (`manrajchauhan.com`)  
-**Design Reference:** [basement.studio](https://basement.studio/) + Extracted Editorial Palette  
-**Visual Style:** Hybrid Editorial Cyber-Brutalism / Warm Linen Cream Base / Burnt Terracotta Rust Accents  
+**Project:** Manraj Chauhan Portfolio  
+**Reference Direction:** Dark cinematic studio hero, white editorial content, thin-grid sectioning, lime micro-interactions  
+**Current Implementation:** Next.js App Router, custom CSS tokens in `app/globals.css`
 
 ---
 
-## 1. Extracted Color Palette Matrix
+## 1. Visual Language
 
-The color system has been updated by extracting exact color values from Manraj Chauhan's branding graphics, engineering log cards, and photography:
+The portfolio uses a precise agency-style landing page system:
 
-```
-+-----------------------------------------------------------------------------------------+
-|  Primary Background : Warm Linen Cream (#FAF4EC)                                        |
-|  Surface Card Base  : Pure Off-White (#FFFDF9)                                          |
-|  Secondary Surface  : Soft Sand (#F5EBE0)                                               |
-|  High-Contrast Base : Deep Charcoal (#121214)                                           |
-|                                                                                         |
-|  Text Primary       : Rich Charcoal Espresso (#141210)                                 |
-|  Text Muted         : Warm Taupe (#5C5248)                                              |
-|  Text on Dark       : Warm Linen (#FAF4EC)                                              |
-|                                                                                         |
-|  Accent 1 (Primary) : Vibrant Burnt Terracotta / Rust (#E04B16)                         |
-|  Accent 2 (Secondary): Warm Copper Bronze (#A65D28)                                     |
-|  Accent 3 (Highlight): Soft Burnt Amber (#C86F28)                                       |
-|  Border Color       : Subtle Sand Border (rgba(26, 23, 21, 0.12))                        |
-+-----------------------------------------------------------------------------------------+
-```
+- Full-screen black hero with atmospheric green/teal light wash.
+- Oversized display wordmark as the first visual signal.
+- Thin 1px grid dividers with centered plus markers between sections.
+- Small uppercase monospace labels with lime square indicators.
+- White editorial content sections with compact spacing and asymmetrical project placement.
+- Neutral imagery, grayscale portrait treatment, and black hover badges.
+- Large pale footer wordmark that acts as a background graphic.
 
-### CSS Variables (`variables.css`)
+This direction should feel sharp, minimal, high-end, technical, and confident.
+
+---
+
+## 2. Color Tokens
+
 ```css
 :root {
-  /* Color Tokens */
-  --bg-obsidian: #faf4ec;       /* Warm Linen Cream Page Base */
-  --bg-surface: #fffdf9;        /* Off-White Card Base */
-  --bg-card: #f5ebe0;           /* Soft Sand Container */
-  --bg-dark-card: #121214;      /* Deep Charcoal Ticker/Badge Base */
-
-  --text-main: #141210;         /* Primary Headings - Charcoal Espresso */
-  --text-secondary: #5c5248;    /* Body Text - Warm Taupe */
-  --text-muted: #8c8278;        /* Subtitles & Captions */
-  --text-on-dark: #faf4ec;      /* High-Contrast Light Text */
-
-  --accent-orange: #e04b16;     /* Primary Accent - Vibrant Terracotta Rust */
-  --accent-copper: #a65d28;     /* Secondary Accent - Warm Copper Bronze */
-  --accent-amber: #c86f28;      /* Highlight Accent - Burnt Amber */
-
-  --border-subtle: rgba(26, 23, 21, 0.12);
-  --border-active: rgba(224, 75, 22, 0.6);
-
-  /* Font Families */
-  --font-display: 'Space Grotesk', -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  --font-body: 'Inter', -apple-system, sans-serif;
+  --color-ink: #050505;
+  --color-graphite: #171717;
+  --color-charcoal: #222222;
+  --color-muted: #676767;
+  --color-fog: #8d8d8d;
+  --color-line: #e4e4e4;
+  --color-paper: #ffffff;
+  --color-soft: #f5f5f5;
+  --color-lime: #19ff3c;
+  --color-lime-soft: #c7ffd0;
 }
 ```
 
+Usage:
+
+- `ink`: primary dark hero, black buttons, hover badges.
+- `paper`: main page background and light button surfaces.
+- `soft`: service cards, article thumbnails, footer surface.
+- `line`: thin separators and card dividers.
+- `lime`: active dots, action orbs, navigation accents.
+- `muted`: secondary metadata, years, captions.
+
 ---
 
-## 2. Typography System
+## 3. Typography
 
-- **Display Headers (`--font-display`):** `Space Grotesk 800` set in deep charcoal (`#141210`) with terracotta rust accent highlights (`#E04B16`).
-- **Monospace Accents (`--font-mono`):** `JetBrains Mono` for engineering log tags (`[ENGINEERING LOG #001]`, `[01/05]`, `MANRAJ CHAUHAN`).
-- **Body Text (`--font-body`):** Clean, high-legibility sans-serif (`Inter`) in warm taupe (`#5C5248`).
+```css
+:root {
+  --font-display: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-code: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+}
+```
+
+Rules:
+
+- Display typography uses a heavy grotesque, not serif.
+- Hero name is extra-large, heavy, and tightly stacked through line height only.
+- Body copy is restrained and readable.
+- Micro labels, project metadata, nav, and buttons use monospace.
+- Letter spacing stays at `0` across the system.
+
+Type scale:
+
+- Hero: `78px / 116px / 168px / 218px` by breakpoint.
+- Section headline: `24px / 28px / 36px`.
+- Service titles: `22px / 23px / 27px`, uppercase.
+- Testimonial quote: `22px / 25px / 31px`.
+- Metadata: `11px - 13px`, monospace.
 
 ---
 
-## 3. 3D Spatial Canvas Aesthetics
+## 4. Layout System
 
-- **Hero Glass Mesh:** Transmission glass (`MeshTransmissionMaterial`) with index of refraction `ior: 1.52` and subtle chromatic dispersion over `#FFFDF9`.
-- **Inner Core Geometry:** Wireframe octahedron rendered in bright burnt terracotta rust (`#E04B16`).
-- **Drei Spatial HTML Cards:** Glassmorphic off-white cards (`rgba(255, 253, 249, 0.92)`) anchored into 3D world coordinates with smooth hover borders in terracotta orange (`#E04B16`).
+- Page padding: `14px` mobile, `20px` tablet, `28px` laptop, `40px` desktop.
+- Max content width: `1440px`.
+- Section bottom padding: `72px` mobile, `92px` desktop.
+- Service grid: 3 columns on desktop, 1 column on mobile.
+- Project grid: 12-column desktop masonry; stacked cards on mobile.
+- Footer grid: intro plus 3 link columns, collapsing to 2 columns and then 1 column.
+
+Divider pattern:
+
+- Every major white section starts with an 80px horizontal divider.
+- Divider includes a centered plus icon on a white background.
+
+---
+
+## 5. Components
+
+### Action Button
+
+Pill button with black or white base and a lime circular arrow control. Used for contact CTAs only.
+
+### Section Marker
+
+Uppercase monospace label with a lime square. Used for `What I Do`, `Services`, `Project`, `Testimonials`, and `Latest Article`.
+
+### Service Card
+
+Soft gray tile, 8px radius, numbered top label, uppercase title, divider line, short description, and small `Read more` link.
+
+### Project Card
+
+Image or abstract visual block with hover `View` badge. Metadata row has index, title/year, and project category.
+
+### Footer
+
+Soft gray band with email capture, page links, social links, contact CTA, and oversized pale `MANRAJ` wordmark.
+
+---
+
+## 6. UX Rules
+
+- Keep the first viewport focused on identity, specialty, and contact action.
+- Use motion only for subtle hover feedback and smooth scrolling.
+- Keep section labels consistent so the page scans like an editorial index.
+- Avoid decorative clutter; the grid, whitespace, typography, and images carry the brand.
+- Keep all claims grounded in actual portfolio content unless new verified copy is added.
