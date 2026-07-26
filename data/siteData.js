@@ -144,7 +144,7 @@ export const footerColumns = [
   },
   {
     title: 'Connect & Links',
-    links: ['GitHub', 'LinkedIn', 'Email', 'Sitemap'],
+    links: ['WhatsApp', 'GitHub', 'LinkedIn', 'Email', 'Sitemap'],
   },
 ];
 
@@ -158,6 +158,7 @@ export function getAnchorForLabel(label) {
     Work: '/work',
     Service: '/#service',
     Contact: 'mailto:contact@manrajchauhan.com',
+    WhatsApp: 'https://wa.me/?text=Hi%20Manraj,%20I%20saw%20your%20portfolio',
     GitHub: 'https://github.com/manrajchauhan',
     LinkedIn: 'https://www.linkedin.com/in/mrmanrajchauhan/',
     Email: 'mailto:contact@manrajchauhan.com',

@@ -6,7 +6,11 @@ import Divider from '@/components/ui/Divider';
 import SectionMarker from '@/components/ui/SectionMarker';
 import { services } from '@/data/siteData';
 
+import { useLeadModal } from '@/components/ui/LeadCaptureContext';
+
 export default function ServicesSection() {
+  const { openLeadModal } = useLeadModal();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -40,14 +44,26 @@ export default function ServicesSection() {
           <span>01</span>
           <h3>Web Apps & Product Frontends</h3>
           <p>Crafting fast, responsive interfaces with seamless design and powerful frontend engineering.</p>
-          <a href="#project">Read more</a>
+          <button
+            type="button"
+            onClick={() => openLeadModal('Web Apps & Product Frontends')}
+            style={{ background: 'none', border: 'none', padding: 0, color: 'inherit', font: 'inherit', cursor: 'pointer', textDecoration: 'underline' }}
+          >
+            Inquire Service →
+          </button>
         </motion.article>
 
         <motion.article variants={itemVariants} whileHover={{ y: -6, transition: { duration: 0.25 } }} className="service-card">
           <span>02</span>
           <h3>Design & Development</h3>
           <p>Building accessible, high-performing websites that unite strategy and clean scalable code.</p>
-          <a href="#project">Read more</a>
+          <button
+            type="button"
+            onClick={() => openLeadModal('Design & Development')}
+            style={{ background: 'none', border: 'none', padding: 0, color: 'inherit', font: 'inherit', cursor: 'pointer', textDecoration: 'underline' }}
+          >
+            Inquire Service →
+          </button>
         </motion.article>
 
         <motion.figure variants={itemVariants} className="service-image service-image--device">
@@ -63,7 +79,13 @@ export default function ServicesSection() {
             <span>{service.id}</span>
             <h3>{service.title}</h3>
             <p>{service.copy}</p>
-            <a href="#project">Read more</a>
+            <button
+              type="button"
+              onClick={() => openLeadModal(service.title)}
+              style={{ background: 'none', border: 'none', padding: 0, color: 'inherit', font: 'inherit', cursor: 'pointer', textDecoration: 'underline' }}
+            >
+              Inquire Service →
+            </button>
           </motion.article>
         ))}
       </motion.div>

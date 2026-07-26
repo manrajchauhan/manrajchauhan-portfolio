@@ -1,6 +1,8 @@
 import './globals.css';
 import LenisProvider from '@/components/LenisProvider';
 import JsonLd from '@/components/JsonLd';
+import { LeadCaptureProvider } from '@/components/ui/LeadCaptureContext';
+import LeadCaptureModal from '@/components/ui/LeadCaptureModal';
 
 export const metadata = {
   metadataBase: new URL('https://manrajchauhan.com'),
@@ -82,9 +84,12 @@ export default function RootLayout({ children }) {
         <JsonLd />
       </head>
       <body>
-        <LenisProvider>
-          {children}
-        </LenisProvider>
+        <LeadCaptureProvider>
+          <LenisProvider>
+            {children}
+            <LeadCaptureModal />
+          </LenisProvider>
+        </LeadCaptureProvider>
       </body>
     </html>
   );

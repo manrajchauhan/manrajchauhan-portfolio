@@ -6,7 +6,11 @@ import { ArrowDown } from 'lucide-react';
 import ActionButton from '@/components/ui/ActionButton';
 import Header from './Header';
 
+import { useLeadModal } from '@/components/ui/LeadCaptureContext';
+
 export default function HeroSection() {
+  const { openLeadModal } = useLeadModal();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -76,7 +80,9 @@ export default function HeroSection() {
           <p>
             Hi, I am Manraj Chauhan, a Technical Lead and Full Stack Developer building high-performance web applications, backend microservices, and scalable product experiences.
           </p>
-          <ActionButton tone="light">Let&apos;s Discuss</ActionButton>
+          <ActionButton tone="light" onClick={() => openLeadModal()}>
+            Let&apos;s Discuss
+          </ActionButton>
         </motion.div>
 
         <motion.a
