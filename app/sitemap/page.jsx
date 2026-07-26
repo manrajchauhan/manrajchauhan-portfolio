@@ -10,7 +10,7 @@ import ActionButton from '@/components/ui/ActionButton';
 import { projects, services, articles } from '@/data/siteData';
 
 const coreSections = [
-  { label: 'Home / Hero', path: '/#home', desc: 'Main landing section with technical lead overview and portfolio highlights.' },
+  { label: 'Home / Hero', path: '/', desc: 'Main landing section with technical lead overview and portfolio highlights.' },
   { label: 'About / What I Do', path: '/#about', desc: 'Overview of engineering background, architectural focus, and approach.' },
   { label: 'Services', path: '/#service', desc: 'Capabilities in web apps, frontend systems, design, and system architecture.' },
   { label: 'Projects & Work', path: '/#project', desc: 'Curated list of live applications, portfolio systems, and API architectures.' },

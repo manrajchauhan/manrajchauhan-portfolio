@@ -51,11 +51,15 @@ export default function ArticlesSection() {
             <p className="article-date">
               {article.date} <Circle size={5} fill="currentColor" /> {article.read}
             </p>
-            <h3>{article.title}</h3>
+            <h3>
+              <a href={article.href} style={{ color: 'inherit', textDecoration: 'none' }}>
+                {article.title}
+              </a>
+            </h3>
             <div className="article-footer">
               <span>{article.tag}</span>
-              <a href="mailto:contact@manrajchauhan.com">
-                Read All <ArrowUpRight size={12} />
+              <a href={article.href}>
+                Read Article <ArrowUpRight size={12} />
               </a>
             </div>
           </motion.article>

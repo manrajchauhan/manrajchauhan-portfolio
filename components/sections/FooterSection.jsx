@@ -16,7 +16,7 @@ export default function FooterSection() {
         className="footer-grid"
       >
         <div className="footer-intro">
-          <a href="#home" className="brand-mark brand-mark--footer">
+          <a href="/" className="brand-mark brand-mark--footer">
             MANRAJ<span>*</span>
           </a>
           <p>

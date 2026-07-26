@@ -12,7 +12,7 @@ export default function Header() {
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        href="#home"
+        href="/"
         className="brand-mark"
         aria-label="Manraj Chauhan home"
       >
