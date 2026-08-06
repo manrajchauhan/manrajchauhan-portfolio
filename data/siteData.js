@@ -25,8 +25,32 @@ export const services = [
 
 export const projects = [
   {
-    slug: 'markme-workspace',
+    slug: 'spiritual-garden-scribe',
     number: '001.',
+    title: 'Spiritual.Me — Digital Spiritual Garden',
+    year: '2026',
+    type: 'Live Application',
+    image: '/spiritual-garden.png',
+    className: 'project-card--large',
+    href: '/work/spiritual-garden-scribe',
+    externalUrl: 'https://spiritual.manrajchauhan.com',
+    githubUrl: 'https://github.com/manrajchauhan/spiritual-garden-scribe',
+    role: 'Creator & Full Stack Engineer',
+    timeline: '1 Month',
+    stack: ['TanStack Start', 'Vite', 'React 19', 'Supabase Postgres', 'Tailwind CSS v4', 'Framer Motion'],
+    summary: 'A lifelong digital garden of reflections, satsang learnings, seva experiences and book notes from the Sant Nirankari Mission, styled with a Repeat editorial highlighter-on-paper aesthetic.',
+    challenge: 'Designing a modern editorial reading interface with light and dark theme adaptation, full-text search indexing, Supabase Auth integration, and strict SEO/GEO/AEO schema markups.',
+    solution: 'Engineered a TanStack Start full-stack web application with Supabase Postgres backend, custom Repeat design tokens (Poppins uppercase headlines & Montserrat body text), interactive Studio management dashboard, and JSON-LD structured data for generative AI engine indexing.',
+    highlights: [
+      'Editorial highlighter-on-paper visual design system with Repeat tokens',
+      'Supabase Postgres authentication, database migrations & studio CRUD management',
+      'Generative Engine Optimization (GEO & AEO) with JSON-LD Schema.org markups',
+      'Dark mode with electric lime radial header aura & 25px flat card radius',
+    ],
+  },
+  {
+    slug: 'markme-workspace',
+    number: '002.',
     title: 'MarkMe Workspace',
     year: '2026',
     type: 'Live App',
