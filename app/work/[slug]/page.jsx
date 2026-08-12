@@ -22,6 +22,13 @@ export async function generateMetadata(props) {
   return {
     title: `${project.title} - Case Study | Manraj Chauhan`,
     description: project.summary,
+    alternates: { canonical: `https://manrajchauhan.com/work/${project.slug}` },
+    openGraph: {
+      title: `${project.title} | Manraj Chauhan`,
+      description: project.summary,
+      url: `https://manrajchauhan.com/work/${project.slug}`,
+      images: [{ url: project.image, alt: project.title }],
+    },
   };
 }
 
@@ -39,6 +46,23 @@ export default async function ProjectSinglePage(props) {
 
   return (
     <main className="site-shell">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareApplication',
+            name: project.title,
+            applicationCategory: project.type,
+            operatingSystem: 'Web Browser',
+            url: project.externalUrl || `https://manrajchauhan.com/work/${project.slug}`,
+            image: `https://manrajchauhan.com${project.image}`,
+            description: project.summary,
+            author: { '@type': 'Person', name: 'Manraj Chauhan', url: 'https://manrajchauhan.com/' },
+            mainEntityOfPage: `https://manrajchauhan.com/work/${project.slug}`,
+          }),
+        }}
+      />
       <section className="hero-section" style={{ minHeight: 'auto', paddingBottom: '72px' }}>
         <Header />
 

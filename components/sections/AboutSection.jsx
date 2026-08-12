@@ -2,35 +2,24 @@
 
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
-import Divider from '@/components/ui/Divider';
 import SectionMarker from '@/components/ui/SectionMarker';
-import ActionButton from '@/components/ui/ActionButton';
+
+const stack = ['Product strategy', 'Frontend systems', 'API architecture', 'Technical leadership'];
 
 export default function AboutSection() {
   return (
-    <section id="about" className="content-section about-section">
-      <Divider />
-      <div className="section-layout section-layout--intro">
-        <div className="section-left">
-          <SectionMarker label="What I Do" />
-          <ActionButton>Let&apos;s Discuss</ActionButton>
+    <section id="about" className="about-section editorial-section">
+      <div className="section-rail"><SectionMarker label="The approach" /><span>02</span></div>
+      <motion.div className="about-statement" initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.65 }}>
+        <p className="display-copy">The best product work makes complex things feel <em>inevitable.</em></p>
+        <div className="about-detail">
+          <p>I work across product thinking, interface craft, and the backend foundations that make a product dependable. The goal is never technology for its own sake—it is a system that gives people confidence.</p>
+          <a className="inline-link" href="/work">See the work <ArrowUpRight size={15} /></a>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="about-copy"
-        >
-          <h2>
-            A Full Stack Developer focused on robust engineering, clear system architecture, and polished digital products.
-          </h2>
-          <a className="text-link" href="#service">
-            About me <ArrowUpRight size={13} />
-          </a>
-        </motion.div>
-      </div>
+      </motion.div>
+      <ul className="capability-index" aria-label="Core capabilities">
+        {stack.map((item, index) => <li key={item}><span>0{index + 1}</span>{item}</li>)}
+      </ul>
     </section>
   );
 }

@@ -1,70 +1,20 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Circle, Code2, Layers3, Server } from 'lucide-react';
-import Divider from '@/components/ui/Divider';
+import { ArrowUpRight } from 'lucide-react';
 import SectionMarker from '@/components/ui/SectionMarker';
 import { articles } from '@/data/siteData';
 
 export default function ArticlesSection() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.12, delayChildren: 0.1 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 24 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-    },
-  };
-
   return (
-    <section id="pages" className="content-section article-section">
-      <Divider />
-      <SectionMarker label="Latest Article" />
-
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-60px' }}
-        className="article-grid"
-      >
-        {articles.map((article, index) => (
-          <motion.article
-            variants={itemVariants}
-            whileHover={{ y: -6, transition: { duration: 0.25 } }}
-            className="article-card"
-            key={article.title}
-          >
-            <div className={`article-thumb article-thumb--${index + 1}`}>
-              {index === 1 && <Code2 size={48} />}
-              {index === 2 && <Layers3 size={48} />}
-              {index === 0 && <Server size={48} />}
-            </div>
-            <p className="article-date">
-              {article.date} <Circle size={5} fill="currentColor" /> {article.read}
-            </p>
-            <h3>
-              <a href={article.href} style={{ color: 'inherit', textDecoration: 'none' }}>
-                {article.title}
-              </a>
-            </h3>
-            <div className="article-footer">
-              <span>{article.tag}</span>
-              <a href={article.href}>
-                Read Article <ArrowUpRight size={12} />
-              </a>
-            </div>
-          </motion.article>
-        ))}
-      </motion.div>
+    <section id="pages" className="notes-section editorial-section">
+      <div className="section-rail"><SectionMarker label="Field notes" /><span>06</span></div>
+      <div className="notes-heading"><p>Writing on systems, interfaces, and the decisions behind both.</p><a className="inline-link" href="/blog">Read all notes <ArrowUpRight size={15} /></a></div>
+      <div className="notes-list">
+        {articles.map((article, index) => <motion.a href={article.href} key={article.slug} className="note-row" initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: index * 0.06 }}>
+          <span>0{index + 1}</span><p>{article.title}</p><span>{article.tag}</span><ArrowUpRight size={17} />
+        </motion.a>)}
+      </div>
     </section>
   );
 }

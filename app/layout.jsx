@@ -3,28 +3,30 @@ import LenisProvider from '@/components/LenisProvider';
 import JsonLd from '@/components/JsonLd';
 import { LeadCaptureProvider } from '@/components/ui/LeadCaptureContext';
 import LeadCaptureModal from '@/components/ui/LeadCaptureModal';
-import FloatingWhatsApp from '@/components/ui/FloatingWhatsApp';
 
 export const metadata = {
   metadataBase: new URL('https://manrajchauhan.com'),
   title: {
-    default: 'Manraj Chauhan - Technical Lead & Full Stack Developer',
+    default: 'Manraj Chauhan | Technical Lead & Full Stack Developer',
     template: '%s | Manraj Chauhan',
   },
-  description: 'Portfolio of Manraj Chauhan, a Technical Lead and Full Stack Developer building high-performance web applications, scalable backend systems, and polished product experiences.',
+  description: 'Manraj Chauhan is a Technical Lead and Full Stack Developer building high-performance web applications, scalable backend systems, and polished product experiences.',
   keywords: [
     'Manraj Chauhan',
     'Manraj Chauhan Portfolio',
     'Technical Lead',
     'Full Stack Developer',
-    'Software Engineer',
+    'Full Stack Engineer',
     'System Architecture',
     'React Developer',
     'Next.js Developer',
     'Node.js Architect',
     'MarkMe Workspace',
-    'Frontend Developer',
-    'Backend Engineer',
+    'Frontend Engineering',
+    'Backend Engineering',
+    'API Design',
+    'TypeScript Developer',
+    'React Developer Portfolio',
   ],
   authors: [{ name: 'Manraj Chauhan', url: 'https://manrajchauhan.com' }],
   creator: 'Manraj Chauhan',
@@ -38,13 +40,13 @@ export const metadata = {
     canonical: 'https://manrajchauhan.com',
   },
   icons: {
-    icon: '/icon.svg',
-    shortcut: '/icon.svg',
-    apple: '/icon.svg',
+    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
+    shortcut: ['/icon.svg'],
+    apple: [{ url: '/icon.svg', type: 'image/svg+xml' }],
   },
   openGraph: {
-    title: 'Manraj Chauhan - Technical Lead & Full Stack Developer',
-    description: 'Portfolio of Manraj Chauhan, focused on full stack engineering, API systems, technical leadership, and high-performance product interfaces.',
+    title: 'Manraj Chauhan | Technical Lead & Full Stack Developer',
+    description: 'Technical leadership, full stack engineering, system architecture, and high-performance product experiences by Manraj Chauhan.',
     url: 'https://manrajchauhan.com',
     siteName: 'Manraj Chauhan Portfolio',
     images: [
@@ -60,8 +62,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Manraj Chauhan - Technical Lead & Full Stack Developer',
-    description: 'Personal portfolio of Manraj Chauhan, Technical Lead and Full Stack Developer.',
+    title: 'Manraj Chauhan | Technical Lead & Full Stack Developer',
+    description: 'Technical leadership, full stack engineering, and system architecture by Manraj Chauhan.',
     images: ['/hero.png'],
     creator: '@mrmanrajchauhan',
   },
@@ -89,7 +91,6 @@ export default function RootLayout({ children }) {
           <LenisProvider>
             {children}
             <LeadCaptureModal />
-            <FloatingWhatsApp />
           </LenisProvider>
         </LeadCaptureProvider>
       </body>

@@ -3,7 +3,18 @@
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
-export default function ActionButton({ children, href = 'mailto:manrajchauhan2023@gmail.com', tone = 'dark' }) {
+export default function ActionButton({ children, href = 'mailto:manrajchauhan2023@gmail.com', tone = 'dark', onClick }) {
+  if (onClick) {
+    return (
+      <motion.button type="button" whileHover="hover" whileTap={{ scale: 0.98 }} initial="initial" className={`action-button action-button--${tone}`} onClick={onClick}>
+        <span>{children}</span>
+        <motion.span className="action-button__orb" variants={{ hover: { x: 3, y: -3, scale: 1.08, transition: { type: 'spring', stiffness: 400, damping: 15 } }, initial: { x: 0, y: 0, scale: 1 } }}>
+          <ArrowUpRight size={12} strokeWidth={2.4} />
+        </motion.span>
+      </motion.button>
+    );
+  }
+
   return (
     <motion.a
       whileHover="hover"

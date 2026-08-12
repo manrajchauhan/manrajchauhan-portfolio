@@ -21,6 +21,14 @@ export async function generateMetadata(props) {
   return {
     title: `${article.title} | Manraj Chauhan Blog`,
     description: article.subtitle,
+    alternates: { canonical: `https://manrajchauhan.com/blog/${article.slug}` },
+    openGraph: {
+      type: 'article',
+      title: article.title,
+      description: article.subtitle,
+      url: `https://manrajchauhan.com/blog/${article.slug}`,
+      authors: [article.author],
+    },
   };
 }
 
@@ -34,6 +42,23 @@ export default async function BlogSinglePage(props) {
 
   return (
     <main className="site-shell">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            headline: article.title,
+            description: article.subtitle,
+            url: `https://manrajchauhan.com/blog/${article.slug}`,
+            author: { '@type': 'Person', name: article.author, url: 'https://manrajchauhan.com/' },
+            publisher: { '@type': 'Person', name: 'Manraj Chauhan', url: 'https://manrajchauhan.com/' },
+            mainEntityOfPage: `https://manrajchauhan.com/blog/${article.slug}`,
+            articleBody: article.paragraphs.join(' '),
+            inLanguage: 'en',
+          }),
+        }}
+      />
       <section className="hero-section" style={{ minHeight: 'auto', paddingBottom: '64px' }}>
         <Header />
 
