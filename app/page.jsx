@@ -67,7 +67,7 @@ export default function Home() {
         {/* ── CV ── */}
         <p className="cv-link-line">
           Looking for the serious version of me? My official CV lives at{' '}
-          <a href="/cv.pdf" target="_blank" rel="noopener">
+          <a href="/resume.pdf" target="_blank" rel="noopener">
             CV &rarr;
           </a>
         </p>
