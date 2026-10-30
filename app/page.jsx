@@ -15,14 +15,9 @@ export default function Home() {
           </h1>
 
           <p className="hero-bio">
-            I&rsquo;m Manraj &mdash; a full-stack developer and
-            CEO / Founder of{' '}
-            <a href="https://solsn.com/" target="_blank" rel="noopener">
-              Solsn Technologies
-            </a>.
-            I build web applications end-to-end, from interface to
-            infrastructure &mdash; currently leading engineering
-            at Indiana Marketplace.
+            I&rsquo;m Manraj &mdash; a full-stack developer. I build
+            web applications end-to-end, from interface to
+            infrastructure.
           </p>
         </div>
       </header>
@@ -67,7 +62,7 @@ export default function Home() {
         {/* ── CV ── */}
         <p className="cv-link-line">
           Looking for the serious version of me? My official CV lives at{' '}
-          <a href="/resume.pdf" target="_blank" rel="noopener">
+          <a href="/Manraj_Chauhan_Resume2026.pdf" target="_blank" rel="noopener">
             CV &rarr;
           </a>
         </p>
