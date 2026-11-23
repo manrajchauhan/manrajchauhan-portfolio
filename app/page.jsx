@@ -1,88 +1,164 @@
-import { projects, contact } from '@/data/content';
+import {
+  projects,
+  experience,
+  skills,
+  contact,
+  personalIdentity,
+  cvPath,
+} from '@/data/content';
+import ThemeToggle from '@/components/ThemeToggle';
+import ExternalLink from '@/components/ExternalLink';
 
 export default function Home() {
   return (
     <div className="page-container">
 
+      {/* ── TOP BAR ── */}
+      <div className="top-bar">
+        <span className="identity-label">manrajchauhan.com</span>
+        <ThemeToggle />
+      </div>
+
       {/* ── HERO ── */}
-      <header className="site-header" role="banner">
-        <div className="header-text">
-          <span className="identity-label">manrajchauhan.com</span>
-
-          <h1 className="hero-headline">
-            Full Stack Developer,<br />
-            <em>building things for the web.</em>
-          </h1>
-
-          <p className="hero-bio">
-            I&rsquo;m Manraj &mdash; a full-stack developer. I build
-            web applications end-to-end, from interface to
-            infrastructure.
+      <header className="site-header">
+        {personalIdentity.availableForWork && (
+          <p className="availability">
+            <span className="availability-dot" aria-hidden="true" />
+            Available for new projects
           </p>
+        )}
+
+        <h1 className="hero-headline">
+          Full Stack Developer,<br />
+          <em>building things for the web.</em>
+        </h1>
+
+        <p className="hero-bio">
+          I&rsquo;m Manraj, a full-stack developer based in {personalIdentity.location}.
+          I build web applications end-to-end, from interface to infrastructure,
+          most recently as Technical Lead on a B2B marketplace.
+        </p>
+
+        <div className="hero-actions">
+          {contact.email && (
+            <a className="button button--primary" href={`mailto:${contact.email}`}>
+              Get in touch
+            </a>
+          )}
+          <ExternalLink className="button" href={cvPath}>
+            View CV
+          </ExternalLink>
         </div>
       </header>
 
-      {/* ── PROJECTS ── */}
       <main id="main-content">
-        <hr className="section-divider" />
-        <h2 className="section-label">Projects &mdash; selected work</h2>
 
-        <div className="project-list" role="list">
-          {projects.map((project) => {
-            const isClickable = !!project.url;
-            const Component = isClickable ? 'a' : 'span';
-            const linkProps = isClickable
-              ? { href: project.url, target: '_blank', rel: 'noopener' }
-              : { 'aria-disabled': 'true' };
+        {/* ── PROJECTS ── */}
+        <section aria-labelledby="projects-heading">
+          <h2 id="projects-heading" className="section-label">Selected work</h2>
 
-            return (
-              <Component
-                key={project.title}
-                className="project-item"
-                role="listitem"
-                {...linkProps}
-              >
-                <div className="project-left">
-                  <div className="project-name">{project.title}</div>
-                  <div className="project-desc">{project.description}</div>
-                </div>
-                <div className="project-right">
+          <ul className="project-list">
+            {projects.map((project) => {
+              const meta = (
+                <div className="project-meta">
                   <span className={`tag ${project.status === 'live' ? 'tag--live' : ''}`}>
                     {project.status === 'live' ? 'Live' : 'Built'}
                   </span>
-                  {project.year && (
-                    <span className="project-year">{project.year}</span>
-                  )}
+                  {project.year && <span className="project-year">{project.year}</span>}
                 </div>
-              </Component>
-            );
-          })}
-        </div>
+              );
 
-        {/* ── CV ── */}
-        <p className="cv-link-line">
-          Looking for the serious version of me? My official CV lives at{' '}
-          <a href="/Manraj_Chauhan_Resume2026.pdf" target="_blank" rel="noopener">
-            CV &rarr;
-          </a>
-        </p>
+              return (
+                <li key={project.title} className="project-item">
+                  <div className="project-head">
+                    <h3 className="project-name">
+                      {project.url ? (
+                        <ExternalLink href={project.url} className="project-link">
+                          {project.title}
+                          <span className="project-arrow" aria-hidden="true"> ↗</span>
+                        </ExternalLink>
+                      ) : (
+                        project.title
+                      )}
+                    </h3>
+                    {meta}
+                  </div>
+
+                  <p className="project-desc">{project.description}</p>
+
+                  {project.result && <p className="project-result">{project.result}</p>}
+
+                  {(project.stack.length > 0 || project.github) && (
+                    <div className="project-foot">
+                      {project.stack.length > 0 && (
+                        <ul className="stack-list" aria-label={`${project.title} tech stack`}>
+                          {project.stack.map((s) => <li key={s}>{s}</li>)}
+                        </ul>
+                      )}
+                      {project.github && (
+                        <ExternalLink href={project.github} className="project-code">
+                          Code
+                        </ExternalLink>
+                      )}
+                    </div>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+
+        {/* ── EXPERIENCE ── */}
+        <section aria-labelledby="experience-heading" className="section">
+          <h2 id="experience-heading" className="section-label">Experience</h2>
+          <ul className="experience-list">
+            {experience.map((job) => (
+              <li key={job.org} className="experience-item">
+                <div className="experience-head">
+                  <span className="experience-role">
+                    {job.role} <span className="experience-org">· {job.org}</span>
+                  </span>
+                  <span className="experience-period">{job.period}</span>
+                </div>
+                <p className="experience-note">{job.note}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* ── SKILLS ── */}
+        <section aria-labelledby="skills-heading" className="section">
+          <h2 id="skills-heading" className="section-label">Tools I use</h2>
+          <ul className="stack-list stack-list--large">
+            {skills.map((s) => <li key={s}>{s}</li>)}
+          </ul>
+        </section>
+
+        {/* ── CONTACT ── */}
+        <section aria-labelledby="contact-heading" className="section contact">
+          <h2 id="contact-heading" className="contact-heading">
+            Have a project in mind?
+          </h2>
+          <p className="contact-copy">
+            I&rsquo;m open to freelance work and full-time roles. The fastest way to reach me is email.
+          </p>
+          {contact.email && (
+            <a className="contact-email" href={`mailto:${contact.email}`}>
+              {contact.email}
+            </a>
+          )}
+        </section>
       </main>
 
       {/* ── FOOTER ── */}
       <footer className="site-footer">
         <p className="footer-note">
-          <em>manraj chauhan</em> &mdash; full stack developer
+          <em>Manraj Chauhan</em>{' '}&mdash; full stack developer
         </p>
         <nav className="footer-links" aria-label="Social links">
-          {contact.linkedin && (
-            <a href={contact.linkedin} target="_blank" rel="noopener">LinkedIn</a>
-          )}
-          {contact.github && (
-            <a href={contact.github} target="_blank" rel="noopener">GitHub</a>
-          )}
-          {contact.email && (
-            <a href={`mailto:${contact.email}`}>{contact.email}</a>
-          )}
+          {contact.github && <ExternalLink href={contact.github}>GitHub</ExternalLink>}
+          {contact.linkedin && <ExternalLink href={contact.linkedin}>LinkedIn</ExternalLink>}
+          <ExternalLink href={cvPath}>CV</ExternalLink>
         </nav>
       </footer>
 

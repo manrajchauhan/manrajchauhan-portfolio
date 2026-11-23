@@ -1,0 +1,10 @@
+# Pages removed in the Sept 2026 redesign — send old links home instead of a 404.
+/blog          /  301
+/blog/*        /  301
+/work          /  301
+/work/*        /  301
+/sitemap       /  301
+
+# Older CV files now point at the current one.
+/cv.pdf        /Manraj_Chauhan_Resume2026.pdf  301
+/resume.pdf    /Manraj_Chauhan_Resume2026.pdf  301
