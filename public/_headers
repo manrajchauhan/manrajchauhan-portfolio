@@ -1,0 +1,5 @@
+# Static export writes the share images without a file extension; tell browsers and crawlers they are PNGs.
+/opengraph-image
+  Content-Type: image/png
+/twitter-image
+  Content-Type: image/png
