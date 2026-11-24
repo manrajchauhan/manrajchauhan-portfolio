@@ -19,6 +19,8 @@ const serif = Newsreader({
 const mono = JetBrains_Mono({
   subsets: ['latin'],
   display: 'swap',
+  // Only small labels use the mono face; don't let it compete with the headline font for bandwidth.
+  preload: false,
   variable: '--font-mono',
 });
 
@@ -31,28 +33,51 @@ export const viewport = {
   ],
 };
 
+const TITLE = 'Manraj Chauhan — Full Stack Developer in Navi Mumbai, India';
+const DESCRIPTION =
+  'Manraj Chauhan is a full stack developer in Navi Mumbai, India, building web applications, APIs and digital products with Next.js, React, Node.js and TypeScript.';
+
 export const metadata = {
   metadataBase: new URL('https://manrajchauhan.com'),
   title: {
-    default: 'Manraj Chauhan — Full Stack Developer',
+    default: TITLE,
     template: '%s — Manraj Chauhan',
   },
-  description: 'Full Stack Developer in Navi Mumbai building web applications, backend systems and digital products with Next.js, Node.js and TypeScript.',
+  description: DESCRIPTION,
+  applicationName: 'Manraj Chauhan',
+  authors: [{ name: 'Manraj Chauhan', url: 'https://manrajchauhan.com/' }],
+  creator: 'Manraj Chauhan',
+  publisher: 'Manraj Chauhan',
+  category: 'technology',
   alternates: {
     canonical: '/',
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  formatDetection: { telephone: false, address: false, email: false },
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://manrajchauhan.com',
+    type: 'profile',
+    firstName: 'Manraj',
+    lastName: 'Chauhan',
+    locale: 'en_IN',
+    url: 'https://manrajchauhan.com/',
     siteName: 'Manraj Chauhan',
-    title: 'Manraj Chauhan — Full Stack Developer',
-    description: 'Full Stack Developer in Navi Mumbai building web applications, backend systems and digital products with Next.js, Node.js and TypeScript.',
+    title: TITLE,
+    description: DESCRIPTION,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Manraj Chauhan — Full Stack Developer',
-    description: 'Full Stack Developer in Navi Mumbai building web applications, backend systems and digital products with Next.js, Node.js and TypeScript.',
+    title: TITLE,
+    description: DESCRIPTION,
   },
 };
 
