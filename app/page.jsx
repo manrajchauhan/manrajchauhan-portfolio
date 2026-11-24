@@ -29,6 +29,7 @@ export default function Home() {
         )}
 
         <h1 className="hero-headline">
+          <span className="hero-name">Manraj Chauhan</span>
           Full Stack Developer,<br />
           <em>building things for the web.</em>
         </h1>
@@ -156,8 +157,13 @@ export default function Home() {
           <em>Manraj Chauhan</em>{' '}&mdash; full stack developer
         </p>
         <nav className="footer-links" aria-label="Social links">
-          {contact.github && <ExternalLink href={contact.github}>GitHub</ExternalLink>}
-          {contact.linkedin && <ExternalLink href={contact.linkedin}>LinkedIn</ExternalLink>}
+          {/* rel="me" tells search engines these profiles belong to the site owner. */}
+          {contact.github && (
+            <ExternalLink href={contact.github} rel="me noopener noreferrer">GitHub</ExternalLink>
+          )}
+          {contact.linkedin && (
+            <ExternalLink href={contact.linkedin} rel="me noopener noreferrer">LinkedIn</ExternalLink>
+          )}
           <ExternalLink href={cvPath}>CV</ExternalLink>
         </nav>
       </footer>
